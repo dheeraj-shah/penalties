@@ -1,0 +1,2 @@
+export const SANDBOX_CSP="default-src 'none'; script-src 'nonce-penalties-trusted-host-v1'; worker-src blob:; connect-src 'none'; img-src 'none'; media-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; style-src 'none'";
+export function validCode(code){return typeof code==='string'&&code.trim().length>0&&new TextEncoder().encode(code).length<=10000&&!code.includes('\u0000');}

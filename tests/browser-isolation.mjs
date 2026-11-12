@@ -1,0 +1,21 @@
+import http from 'node:http';import fs from 'node:fs';import assert from 'node:assert/strict';
+import {createRequire} from 'node:module';const require=createRequire(import.meta.url);const playwright=require(process.env.PLAYWRIGHT_PATH||'playwright');
+const {chromium}=playwright;
+import {SANDBOX_CSP} from '../sandbox-policy.js';
+let escaped=0;
+const server=http.createServer((req,res)=>{if(req.url.startsWith('/escape')){escaped++;res.end('bad');return;}const path=req.url==='/test'?null:req.url.replace('/penalties/','');if(path==='sandbox-host.html'||path==='sandbox-host.js')res.setHeader('Content-Security-Policy',SANDBOX_CSP);if(!path){res.setHeader('Content-Type','text/html');res.end('<div class="arena"></div><script type="module">import {isolatedRender} from "/penalties/sandbox-client.js";window.run=isolatedRender;</script>');return;}try{res.setHeader('Content-Type',path.endsWith('.js')?'text/javascript':'text/html');res.end(fs.readFileSync(new URL('../'+path,import.meta.url)));}catch{res.statusCode=404;res.end();}}).listen(0,'127.0.0.1');
+await new Promise(r=>server.once('listening',r));const origin='http://127.0.0.1:'+server.address().port;
+const browser=await chromium.launch({executablePath:'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
+try{const page=await browser.newPage();await page.goto(origin+'/test');await page.waitForFunction(()=>window.run);
+ const run=code=>page.evaluate(async code=>{try{const r=await window.run(code);r.bitmap.close();return r.state;}catch(e){return {error:e.message};}},code);
+ assert.deepEqual(await run("ctx.fillStyle='#ff00aa';ctx.fillRect(10,10,50,50);return {ok:true};"),{ok:true});
+ assert.deepEqual(await run("return {window:typeof window,document:typeof document,worker:typeof Worker,shared:typeof SharedWorker,broadcast:typeof BroadcastChannel,imports:typeof importScripts};"),{window:'undefined',document:'undefined',worker:'undefined',shared:'undefined',broadcast:'undefined',imports:'undefined'});
+ assert.deepEqual(await run(`try{await fetch('${origin}/escape?secret=x');return {blocked:false}}catch{return {blocked:true}}`),{blocked:true});
+ assert.deepEqual(await run(`try{await import('${origin}/escape');return {blocked:false}}catch{return {blocked:true}}`),{blocked:true});
+ assert.deepEqual(await run("try{new Function('return 1')();return {blocked:false}}catch{return {blocked:true}}"),{blocked:true});
+ assert.match((await run('while(true){}')).error,/time limit/);
+ assert.deepEqual(await run('return {recovered:true}'),{recovered:true});
+ assert.match((await run("return {tooBig:'x'.repeat(5000)}")).error,/safely/);
+ assert.match((await run('ctx.canvas.width=999;')).error,/safely/);
+ assert.equal(escaped,0);console.log('PASS real Chromium: rendering, opaque worker, network/import/eval blocks, no nested workers, infinite-loop termination, recovery, size/dimension rejection');
+}finally{await browser.close();server.close();}
