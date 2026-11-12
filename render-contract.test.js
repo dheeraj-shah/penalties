@@ -10,3 +10,5 @@ test('plain scenery retains original keeper and pitch',async()=>{dom();const r=a
 
 test('declared keeper target renders replacement even when code omits state flag',async()=>{dom();const calls=[];const r=await prepareGenerated('code',{}, {},async(c,i)=>{calls.push(i.layer);return {bitmap:bitmap(),state:{}}},['keeper']);assert.ok(r.keeper);assert.deepEqual(calls,['scene','keeper']);});
 test('no-op artwork cannot be reported as applied',async()=>{dom();await assert.rejects(prepareGenerated('code',{}, {},async()=>({bitmap:bitmap(0),state:{}}),['scene']),/no visible effect/);});
+
+ test('generated layers receive stable logical drawing regions, not viewport sizes',async()=>{dom();const inputs=[];await prepareGenerated('code',{phase:'render',canvas:{width:1}}, {},async(c,i)=>{inputs.push(i);return {bitmap:bitmap(),state:{}}},['keeper','pitch']);for(const i of inputs){assert.deepEqual(i.canvas,{width:1000,height:610});assert.deepEqual(i.regions.sky,{x:280,y:16,width:440,height:140});assert.equal(i.regions.pitch.y,160);}});

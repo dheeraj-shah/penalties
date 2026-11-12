@@ -12,6 +12,7 @@ export function showGenerated(bitmap,hasKeeper=false){
 }
 export function clearGenerated(){document.querySelector('#generated-layer')?.remove();}
 export async function prepareGenerated(code,input,state,render=isolatedRender,targets=[]){
+ input={...input,canvas:{width:1000,height:610},regions:{scene:{x:24,y:16,width:952,height:578},sky:{x:280,y:16,width:440,height:140},keeper:{x:420,y:180,width:160,height:122},pitch:{x:0,y:160,width:1000,height:450}}};
  const scene=await render(code,{...input,layer:'scene'},state);let keeper=null,pitch=null;
  try{
   if(targets.includes('keeper')||scene.state.replaceKeeper===true){
