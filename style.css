@@ -23,3 +23,35 @@ body{height:100svh}.game-panel{position:relative}.change-feedback{position:absol
 #generated-layer{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none;z-index:0}.scoreboard,.result,.round-dots{z-index:1}#undo-code{margin-left:12px}
 /* Model-chosen values, trusted selectors: no generated CSS rules or remote URLs. */
 body[data-custom-ui=true]{font-family:var(--ui-font,system-ui,sans-serif)}body[data-custom-ui=true] :is(h1,h2,.brand,.scoreboard strong,button,textarea){font-family:var(--ui-font,system-ui,sans-serif);letter-spacing:var(--ui-letter-spacing,0px)}body[data-custom-ui=true] :is(h1,h2){font-weight:var(--ui-heading-weight,500)}body[data-custom-ui=true] :is(.arena,.chat-panel,button,textarea,.scoreboard,.message.user,.live-code){border-radius:var(--ui-radius,8px);border-width:var(--ui-border-width,1px)}body[data-custom-ui=true] :is(.suggestions button,.shot-options button,.aim-options button,.message.user,textarea,.live-code){background:var(--panel);color:var(--text);border-color:var(--line)}body[data-custom-ui=true] :is(.shot-options button[aria-pressed=true],.aim-options button[aria-pressed=true]){color:var(--accent);border-color:var(--accent)}body[data-custom-ui=true] :is(.shoot-button,#send){background:var(--ui-button-bg,var(--accent));color:var(--ui-button-text,var(--bg));border:var(--ui-border-width,1px) solid var(--ui-button-border,var(--accent))}body[data-custom-ui=true] .live-code pre{color:var(--text)}body[data-custom-ui=true] .ai-mark{color:var(--accent);background:var(--bg)}
+/* Shrink the drawing surface, never push essential controls below the window. */
+body{height:100dvh;min-height:0;display:grid;grid-template-rows:auto minmax(0,1fr)}
+header{margin:0 auto;flex:none}
+main{height:100%;min-height:0;margin:0 auto;padding-top:12px;padding-bottom:max(24px,env(safe-area-inset-bottom));overflow:hidden}
+.game-panel,.chat-panel{min-width:0;min-height:0}
+.arena{flex:1 1 0;min-height:0;contain:size}
+#pitch{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.controls,.game-heading,.chat-head,.connection,.composer{flex-shrink:0}
+@media(max-height:760px){
+ header{height:44px;min-height:44px}.brand{font-size:23px}.mark{width:26px;height:26px}
+ main{padding-top:8px;gap:16px}.game-heading{display:flex;margin-bottom:8px;gap:10px}.game-heading h1{font-size:21px;letter-spacing:-.5px}.game-heading .text-button{white-space:nowrap}
+ .controls{padding-top:7px}.control-row{margin-bottom:5px}
+ .chat-head{padding:8px 12px}.connection{padding:4px 12px;min-height:26px}.history{padding:8px 12px}
+ .composer{padding:7px 12px}.suggestions{display:flex;overflow-x:auto;margin:4px 0 6px}.suggestions button{flex:0 0 120px;height:35px;min-height:35px;padding:5px 7px;font-size:10px}
+ .suggestion-head{height:20px}.suggestion-head .text-button{padding:0}.privacy{font-size:8px;line-height:1.3;margin:4px 0}
+ textarea{height:44px;min-height:44px}.reset-settings{padding:3px 0}.scoreboard{padding:5px 9px;top:8px;left:8px;gap:10px}.scoreboard strong{font-size:18px}
+}
+@media(max-width:780px){
+ main{padding-top:6px;padding-bottom:max(12px,env(safe-area-inset-bottom));gap:8px}
+ .game-heading{display:flex;margin-bottom:5px}.game-heading h1{font-size:17px}.game-heading .text-button{font-size:10px}
+ .shot-options{height:40px}.shot-options button{min-height:36px}.aim-options button,.shoot-button{min-height:40px}
+ .chat-head{padding:6px 10px}.connection{min-height:22px}.composer{padding:5px 10px}.history{padding:6px 10px}
+}
+/* Very small windows / on-screen keyboards cannot fit both useful panes.
+   Keep every control reachable by scrolling its pane, rather than clipping it. */
+@media(max-height:420px) and (min-width:781px){
+ main{padding-bottom:max(12px,env(safe-area-inset-bottom))}.game-panel,.chat-panel{overflow-y:auto;overscroll-behavior:contain}
+ .arena{flex:none;min-height:160px}.history{flex:none;min-height:64px;max-height:120px}.game-heading h1{font-size:17px}
+}
+@media(max-height:650px) and (max-width:780px){
+ .game-panel,.chat-panel{overflow-y:auto;overscroll-behavior:contain}.arena{flex:1 0 130px}.history{flex:1 0 48px}.composer{flex:none}
+}
