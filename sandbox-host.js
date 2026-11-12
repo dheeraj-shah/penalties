@@ -5,9 +5,11 @@ let active=null;
 const stop=()=>{if(active){clearTimeout(active.timer);active.worker.terminate();URL.revokeObjectURL(active.url);active=null;}};
 addEventListener('message',e=>{
  if(e.source!==parent||!e.data||e.data.kind!=='render')return;
- const {id,code,input,state}=e.data;
+ const {id,input,state}=e.data;let code=e.data.code;
  if(typeof id!=='string'||typeof code!=='string'||code.length>10000)return;
  stop();
+ code=code.trim().replace(/^```(?:javascript|js)?\s*\n?/, '').replace(/\n?```$/, '').trim().replace(/^export\s+default\s+/, '');
+ if(/^(?:async\s+)?function\s*(?:[A-Za-z_$][\w$]*\s*)?\(/.test(code)||/^(?:async\s*)?\([^)]*\)\s*=>/.test(code))code='return await ('+code.replace(/;\s*$/,'')+')(ctx,state,input);';
  if(typeof OffscreenCanvas==='undefined'){parent.postMessage({kind:'result',id,error:'Your browser does not support isolated canvas rendering.'},'*');return;}
  // Host functions are captured before untrusted code starts. No credential or
  // prompt is sent here. Generated code has no DOM, storage identity or network.

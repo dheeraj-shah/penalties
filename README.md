@@ -62,7 +62,7 @@ One atomic D1 `INSERT ... SELECT ... WHERE ... RETURNING` reserves a request **b
 
 - 10 calls per rolling minute globally. No daily or lifetime AI-call quota.
 - Prompt at most 400 characters; inbound body at most 18,000 bytes, including prior generated code.
-- Output at most 512 tokens; reasoning disabled.
+- Output at most 2,048 tokens; reasoning disabled.
 - One upstream call, no automatic retries. Failed calls retain their reservation because billing/transport outcomes can be uncertain.
 
 A daily HMAC of the IP is stored, not the raw address. D1 stores request IDs, timestamps and hashed quota identifiers, **not prompts or chat history**. The request table is not lifetime-capped. App logs do not contain prompts or keys.
@@ -86,6 +86,6 @@ Scenery can use `backdrop`: stadium, mountains, london (stylized skyline), space
 
 Novel prompts produce original Canvas JavaScript, not prebuilt scene blocks. The isolated renderer has no DOM, parent-page access, credentials or network. CSP blocks network/imports/eval; nested workers are disabled before code begins. Each render has a500ms independent watchdog and the worker is terminated after output. Returned state is limited to4,000 characters, fixed1000×610 bitmap dimensions, and generated source10,000 bytes. Unknown/unsupported browsers fail closed. Undo keeps up to8 in-memory revisions; reset removes generated artwork. Refresh does not persist executable code.
 
-Browser memory is **not hard-capped**. The renderer is not a general HTML/app runtime; arbitrary DOM edits, external assets/libraries and network APIs are unavailable. Drawings refresh on changes/shots rather than continuous generated animation. Generation remains512 tokens, so complex code can truncate and be rejected. Failed generation/rendering retains the prior game.
+Browser memory is **not hard-capped**. The renderer is not a general HTML/app runtime; arbitrary DOM edits, external assets/libraries and network APIs are unavailable. Drawings refresh on changes/shots rather than continuous generated animation. Generation remains2,048 tokens, so complex code can truncate and be rejected. Failed generation/rendering retains the prior game.
 
 Pages return `X-Robots-Tag: noindex, nofollow`; login/game include robots meta. This requests exclusion, not instant deletion from search results. Shared-password sessions use HttpOnly, Secure, SameSite Strict cookies and expire after8 hours. Login attempts are durably throttled separately from AI calls.

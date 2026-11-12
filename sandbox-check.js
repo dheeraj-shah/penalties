@@ -1,6 +1,8 @@
 import {isolatedRender} from './sandbox-client.js';
 const output=document.querySelector('#results');output.textContent='';let pass=0,fail=0;
 const cases=[
+ ['full async function format',"async function(ctx,state,input){ctx.fillRect(1,2,3,4);return {ok:true}}",x=>x.ok],
+ ['arrow function format',"(ctx,state,input)=>{return {ok:true}}",x=>x.ok],
  ['renders pixels',"ctx.fillStyle='#ff00aa';ctx.fillRect(10,10,50,50);return {ok:true};",x=>x.ok],
  ['no DOM or nested worker APIs',"return {safe:typeof window==='undefined'&&typeof document==='undefined'&&typeof Worker==='undefined'&&typeof SharedWorker==='undefined'&&typeof BroadcastChannel==='undefined'&&typeof importScripts==='undefined'}",x=>x.safe],
  ['network blocked',"try{await fetch('https://dheerajshah.com/penalties/network-probe');return {blocked:false}}catch{return {blocked:true}}",x=>x.blocked],

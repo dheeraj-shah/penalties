@@ -8,6 +8,7 @@ await new Promise(r=>server.once('listening',r));const origin='http://127.0.0.1:
 const browser=await chromium.launch({executablePath:'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
 try{const page=await browser.newPage();await page.goto(origin+'/test');await page.waitForFunction(()=>window.run);
  const run=code=>page.evaluate(async code=>{try{const r=await window.run(code);r.bitmap.close();return r.state;}catch(e){return {error:e.message};}},code);
+ assert.deepEqual(await run("async function(ctx,state,input){return {ok:true}}"),{ok:true});
  assert.deepEqual(await run("ctx.fillStyle='#ff00aa';ctx.fillRect(10,10,50,50);return {ok:true};"),{ok:true});
  assert.deepEqual(await run("return {window:typeof window,document:typeof document,worker:typeof Worker,shared:typeof SharedWorker,broadcast:typeof BroadcastChannel,imports:typeof importScripts};"),{window:'undefined',document:'undefined',worker:'undefined',shared:'undefined',broadcast:'undefined',imports:'undefined'});
  assert.deepEqual(await run(`try{await fetch('${origin}/escape?secret=x');return {blocked:false}}catch{return {blocked:true}}`),{blocked:true});
