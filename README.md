@@ -21,7 +21,7 @@ This is an original arcade game, not a FIFA/EA FC simulation. Shot names are des
 
 ## Architecture
 
-`app.js` renders the UI and game; `game.js` owns settings validation and shot outcomes. The browser sends a bounded prompt and current settings to `/penalties/api/change`. The Worker asks Cerebras for JSON, validates every field against an allowlist, and returns a patch. The client validates again before applying it. Generated code runs only in a dedicated browser Worker inside an opaque-origin sandboxed iframe. It never runs in the main page or the server and cannot rewrite project files. It draws an overlay and may return a bounded shot outcome to customize arcade rules. The original game controls remain available.
+`app.js` renders the UI and game; `game.js` owns settings validation and shot outcomes. The browser sends a bounded prompt and current settings to `/penalties/api/change`. The Worker asks Cerebras for JSON, validates every field against an allowlist, and returns a patch. The client validates again before applying it. Generated code runs only in a dedicated browser Worker inside an opaque-origin sandboxed iframe. It never runs in the main page or the server and cannot rewrite project files. It draws separate scenery, optional replacement keeper sprites and pitch surfaces, and may return a bounded shot outcome to customize arcade rules. The original game controls remain available.
 
 Current game settings and the previous generated drawing body are sent as context, not full chat history. This keeps token costs and data sharing small. Follow-up requests should name the setting to change.
 
@@ -46,7 +46,7 @@ Use your own Cloudflare account and D1 database. The live demo uses a dedicated 
 1. Create a D1 database and run `schema.sql` and the `AUTH_SCHEMA` exported by `auth.js` against it.
 2. Copy `wrangler.example.jsonc` to `wrangler.jsonc`, set your database ID and domain routes.
 3. Run `npm run build`, `npm test`, and `python3 budget_test.py`.
-4. Deploy with an authenticated Wrangler CLI, or upload `worker.js`, `game.js`, `auth.js`, `sandbox-policy.js`, and generated `assets.js` as ES modules using the Workers API. Main module is `worker.js`. Bind D1 as `DB`.
+4. Deploy with an authenticated Wrangler CLI, or upload `worker.js`, `game.js`, `ui.js`, `auth.js`, `sandbox-policy.js`, and generated `assets.js` as ES modules using the Workers API. Main module is `worker.js`. Bind D1 as `DB`.
 5. In **Cloudflare → Workers & Pages → your Worker → Settings → Variables and Secrets**, add `CEREBRAS_API_KEY` as a **Secret**, not a plaintext variable. Never paste the key into GitHub, a chat, source code or browser code.
 6. Verify the balance, active credits and current rates in your Cerebras dashboard. Then explicitly set plaintext variable `AI_ENABLED` to `true` to activate paid requests. Set it to `false` to stop AI calls without disabling the game.
 7. Configure `DEMO_PASSWORD_HASH` (PBKDF2-SHA256 verifier, see `derivePasswordHash` in auth.js) and a random `DEMO_SESSION_SECRET` as Worker secrets. Never put the shared password in source, frontend, logs or a plaintext variable. Login is required for pages, assets and APIs.
@@ -86,6 +86,14 @@ Scenery can use `backdrop`: stadium, mountains, london (stylized skyline), space
 
 Novel prompts produce original Canvas JavaScript, not prebuilt scene blocks. The isolated renderer has no DOM, parent-page access, credentials or network. CSP blocks network/imports/eval; nested workers are disabled before code begins. Each render has a500ms independent watchdog and the worker is terminated after output. Returned state is limited to4,000 characters, fixed1000×610 bitmap dimensions, and generated source10,000 bytes. Unknown/unsupported browsers fail closed. Undo keeps up to8 in-memory revisions; reset removes generated artwork. Refresh does not persist executable code.
 
-Browser memory is **not hard-capped**. The renderer is not a general HTML/app runtime; arbitrary DOM edits, external assets/libraries and network APIs are unavailable. Drawings refresh on changes/shots rather than continuous generated animation. Generation remains2,048 tokens, so complex code can truncate and be rejected. Failed generation/rendering retains the prior game.
+Browser memory is **not hard-capped**. The renderer is not a general HTML/app runtime; arbitrary DOM edits, external assets/libraries and network APIs are unavailable. Scenery refreshes on changes/shots rather than continuous generated animation. A validated replacement keeper sprite follows the exact original keeper dive transform; the original keeper is not drawn. An opaque replacement pitch replaces the ground while trusted goal, markings, players and ball remain above it. Generation remains2,048 tokens, so complex code can truncate and be rejected. Failed generation/rendering retains the prior game.
 
 Pages return `X-Robots-Tag: noindex, nofollow`; login/game include robots meta. This requests exclusion, not instant deletion from search results. Shared-password sessions use HttpOnly, Secure, SameSite Strict cookies and expire after8 hours. Login attempts are durably throttled separately from AI calls.
+
+### Generated renderer contract
+
+`input.layer` is `scene`, `keeper`, or `pitch`. Include `keeper` in top-level `targets` to supply a nonempty cropped keeper sprite (x400,y150,width200,height170, feet at500,302) that the trusted renderer animates in place of the original. Include `pitch` in top-level `targets` to supply an opaque ground surface across x0,y160,width1000,height450. Sprite/pitch calls use render phase, so shot logic executes once. Failed/empty replacement keeps the prior game. Generated scenery is composed below trusted goals/actors/ball, not a DOM overlay.
+
+Named UI themes can generate arbitrary six-digit palette colors and bounded font, border, radius and spacing values through `ui.js`; they are not limited to preset palettes. CSS selectors/layout rules, URLs and arbitrary host DOM code remain prohibited. Reset/Undo restore prior custom UI values.
+
+Top-level generated-code `targets` must name scene, keeper, pitch and/or rules. The host does not depend on the function returning replacement flags. Empty scenery and empty keeper sprites are rejected rather than reported as applied.

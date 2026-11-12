@@ -1,0 +1,12 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+globalThis.addEventListener=()=>{};
+const {prepareGenerated}=await import('./sandbox-client.js');
+const bitmap=(alpha=255)=>({alpha,close(){this.closed=true;}});
+function dom(){globalThis.document={createElement(){let alpha=0;return {getContext(){return {drawImage(b){alpha=b.alpha;},getImageData(x,y,w,h){const data=new Uint8ClampedArray(w*h*4);for(let i=3;i<data.length;i+=4)data[i]=alpha;return {data};}}}};}};}
+test('separate keeper and pitch render calls never duplicate shot logic',async()=>{dom();const calls=[],scene=bitmap();const result=await prepareGenerated('code',{phase:'shot'}, {},async(code,input)=>{calls.push(input);return {bitmap:input.layer==='scene'?scene:bitmap(),state:{replaceKeeper:true,replacePitch:true}};});assert.deepEqual(calls.map(x=>[x.layer,x.phase]),[['scene','shot'],['keeper','render'],['pitch','render']]);assert.ok(result.keeper&&result.pitch);assert.equal(scene.closed,undefined);});
+test('empty replacement keeper fails before original is hidden',async()=>{dom();const scene=bitmap();await assert.rejects(prepareGenerated('code',{phase:'render'}, {},async(c,i)=>({bitmap:i.layer==='scene'?scene:bitmap(0),state:{replaceKeeper:true}})),/keeper was empty/);assert.equal(scene.closed,true);});
+test('transparent pitch cannot replace original ground',async()=>{dom();await assert.rejects(prepareGenerated('code',{}, {},async(c,i)=>({bitmap:bitmap(i.layer==='pitch'?0:255),state:{replacePitch:true}})),/cover the ground/);});
+test('plain scenery retains original keeper and pitch',async()=>{dom();const r=await prepareGenerated('code',{}, {},async()=>({bitmap:bitmap(),state:{}}));assert.equal(r.keeper,null);assert.equal(r.pitch,null);});
+
+test('declared keeper target renders replacement even when code omits state flag',async()=>{dom();const calls=[];const r=await prepareGenerated('code',{}, {},async(c,i)=>{calls.push(i.layer);return {bitmap:bitmap(),state:{}}},['keeper']);assert.ok(r.keeper);assert.deepEqual(calls,['scene','keeper']);});
+test('no-op artwork cannot be reported as applied',async()=>{dom();await assert.rejects(prepareGenerated('code',{}, {},async()=>({bitmap:bitmap(0),state:{}}),['scene']),/no visible effect/);});

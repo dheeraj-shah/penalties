@@ -57,3 +57,9 @@ export function shotPosition(type,aim,result,progress){
  return {x,y,radius:14-7*t};
 }
 export function outcomeLabel(result,aim){return result==='goal'?'Goal. Beautiful.':result==='save'?'Saved. Try the other corner.':aim==='centre'?'Missed. Over the bar.':'Missed. Wide of the post.';}
+
+export function keeperPose(direction='centre',progress=0){
+ if(!['left','centre','right'].includes(direction)||!Number.isFinite(progress))throw Error('Invalid keeper pose');
+ const move=Math.min(1,Math.max(0,(progress-.2)/.6)),dir=direction==='left'?-1:direction==='right'?1:0;
+ return {x:500+dir*155*move,y:302-Math.sin(move*Math.PI)*20,angle:dir*move*1.04};
+}
