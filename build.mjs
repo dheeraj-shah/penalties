@@ -1,0 +1,2 @@
+import fs from 'node:fs';
+const assets={};for(const [file,type] of [['index.html','text/html; charset=utf-8'],['style.css','text/css; charset=utf-8'],['app.js','text/javascript; charset=utf-8'],['game.js','text/javascript; charset=utf-8']]){assets[file==='index.html'?'/penalties':'/penalties/'+file]={body:fs.readFileSync(new URL(file,import.meta.url),'utf8'),type};}fs.writeFileSync(new URL('assets.js',import.meta.url),'export const assets = '+JSON.stringify(assets)+';\n');

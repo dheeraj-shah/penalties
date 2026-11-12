@@ -1,0 +1,2 @@
+import http from 'node:http';import worker from './worker.js';
+http.createServer(async(req,res)=>{const response=await worker.fetch(new Request('http://localhost:8787'+req.url,{method:req.method}),{});res.writeHead(response.status,Object.fromEntries(response.headers));res.end(Buffer.from(await response.arrayBuffer()));}).listen(8787,'127.0.0.1',()=>console.log('Preview: http://localhost:8787/penalties (AI disabled)'));
