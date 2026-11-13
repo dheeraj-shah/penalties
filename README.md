@@ -99,7 +99,7 @@ Named UI themes can generate arbitrary six-digit palette colors and bounded font
 Top-level generated-code `targets` must name scene, keeper, pitch and/or rules. The host does not depend on the function returning replacement flags. Empty scenery and empty keeper sprites are rejected rather than reported as applied.
 
 ### Anonymous demo browser notices
-`browser_visits` stores only a random browser ID, first/last authenticated game-page visit timestamps, and delivery status. No names, raw IP addresses, prompts, or authentication tokens are stored in this table. IDs and count cookies expire after seven days without a visit. A new record is a browser signal, never proof of a new person. Existing rate-limit tables remain separate and are not visitor analytics.
+`browser_visits` stores only a random browser ID, first/last authenticated game-page visit timestamps, and delivery status. No names, raw IP addresses, prompts, or authentication tokens are stored in this table. Browser records become eligible for deletion after 7 days of inactivity and are removed during daily cleanup (or an authenticated game-page visit). Count cookies expire seven days after their last refresh. A new record is a browser signal, never proof of a new person. Existing rate-limit tables remain separate and are not visitor analytics.
 
 `/penalties/privacy` explains the count and offers a same-origin POST exclusion. Exclusion deletes that browser's record and sets a fixed non-identifying opt-out cookie for one year. Clearing cookies/another browser removes the exclusion, so owner/test exclusions must be verified in every browser before enabling notices. Authentication still protects both privacy and count routes.
 
