@@ -5,7 +5,8 @@ export function mergeLayers(prior,code,targets){
  if(typeof code!=='string'||!Array.isArray(targets)||!targets.length||targets.some(t=>!LAYERS.includes(t)))throw Error('Invalid generated layers');
  const layers={...prior};for(const t of targets)layers[t]=code;
  const groups=new Map();for(const [layer,source]of Object.entries(layers)){if(!LAYERS.includes(layer)||typeof source!=='string')throw Error('Invalid retained layer');if(!groups.has(source))groups.set(source,[]);groups.get(source).push(layer);}
- const branches=[...groups].map(([source,ls])=>{const visible=ls.filter(t=>t!=='rules');if(ls.includes('rules')&&!layers.scene)visible.push('scene');return visible.length?'if('+JSON.stringify(visible)+'.includes(input.layer)){'+body(source)+'}':'';}).join('\n');
- const composed=branches+'\nreturn state;';if(composed.length>10000)throw Error('Your combined artwork is too large. Undo or reset before adding more. Previous game kept.');
+ const branches=[...groups].map(([source,ls])=>{const visible=ls.filter(t=>t!=='rules');if(ls.includes('rules')&&!layers.scene)visible.push('scene');return visible.length?'if('+JSON.stringify(visible)+'.includes(input.layer)){return {...state,...(await (async function(ctx,state,input){'+body(source)+'})(ctx,state,input)||{})};}':'';}).join('\n');
+ const rules=layers.rules&&layers.scene&&layers.rules!==layers.scene?'if(input.layer==="scene"&&input.phase==="shot"){state={...state,...(await (async function(ctx,state,input){'+body(layers.rules)+'})(ctx,state,input)||{})};}\n':'';
+ const composed=rules+branches+'\nreturn state;';if(composed.length>10000)throw Error('Your combined artwork is too large. Undo or reset before adding more. Previous game kept.');
  return {layers,code:composed,targets:Object.keys(layers)};
 }
