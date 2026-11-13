@@ -18,7 +18,7 @@ const prompts=[
  ['Create an original superhero goalkeeper',{}],['Replace the pitch with a moon surface',{}],['Add a UFO above the goal',{}],['Give the UI a medieval castle theme',{}],
  ['Turn the goalkeeper into a dinosaur',{}],['Add a rainbow behind the goal',{}],['Make it snow inside the stadium',{}],['Turn the football into a tiny ringed planet',{}],
  ['Replace the penalty taker with a dinosaur',{playerCharacter:'dinosaur'}],['Bring back the human player',{playerCharacter:'human'}],
- ['Put the stadium in space',{backdrop:'space'}],['Add a London skyline',{backdrop:'london'}],['Add mountains behind the goal',{backdrop:'mountains'}],['Remove the crowd',{crowd:false}],
+ ['Put the stadium in space',{backdrop:'space'}],['Add mountains behind the goal',{backdrop:'mountains'}],['Remove the crowd',{crowd:false}],
  ['Add a chip shot',{shots:['standard','chip']}],['Make the ball pink',{ballColor:'pink'}],['Add a finesse shot',{shots:['standard','finesse']}],['Give the keeper a blue kit',{keeperColor:'blue'}],
  ['Add a power shot',{shots:['standard','power']}],['Switch to a night pitch',{pitch:'night'}],['Make the keeper harder',{difficulty:'hard'}],['Give me five attempts',{attempts:5}],
  ['Add low driven shots',{shots:['standard','low driven']}],['Make the goalposts gold',{goalColor:'gold'}],['Show my scoring streak',{showStreak:true}],['Make the power shot faster',{powerSpeed:1.5}],
