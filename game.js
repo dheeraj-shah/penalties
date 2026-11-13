@@ -24,7 +24,8 @@ export function validatePatch(p) {
 }
 export function takeShot(type,aim,difficulty,rng=Math.random){
  if(!SHOTS.includes(type)||!['left','centre','right'].includes(aim)||!['easy','normal','hard'].includes(difficulty))throw Error('Invalid shot');
- const keeper=['left','centre','right'][Math.floor(rng()*3)];
+ const read=rng(),stay=type==='chip'?.5:type==='power'?.2:1/3;
+ const keeper=read<(1-stay)/2?'left':read<(1+stay)/2?'centre':'right';
  const miss={standard:.035,chip:.09,finesse:.045,'low driven':.035,power:.13,trivela:.10}[type];
  const save={standard:.72,chip:.42,finesse:.52,'low driven':.58,power:.35,trivela:.48}[type]*{easy:.65,normal:1,hard:1.25}[difficulty];
  const missed=rng()<miss; const saved=!missed&&keeper===aim&&rng()<save;
@@ -63,3 +64,6 @@ export function keeperPose(direction='centre',progress=0){
  const move=Math.min(1,Math.max(0,(progress-.2)/.6)),dir=direction==='left'?-1:direction==='right'?1:0;
  return {x:500+dir*155*move,y:302-Math.sin(move*Math.PI)*20,angle:dir*move*1.04};
 }
+
+export function keeperReaction(type,result){return result==='miss'?'Keeper watches the shot pass.':({chip:'Keeper holds their ground for the chip.',finesse:'Keeper reads the curl.',power:'Keeper commits against the power.', 'low driven':'Keeper covers the low angle.',trivela:'Keeper reads the outside-foot bend.',standard:'Keeper picks a corner.'}[type]||'');}
+export function roundSummary(results){const goals=results.filter(x=>x==='goal').length,saves=results.filter(x=>x==='save').length,misses=results.filter(x=>x==='miss').length;return {goals,saves,misses,total:results.length,title:goals===results.length?'Perfect round':goals>=results.length*.7?'Clinical finishing':goals>=results.length*.4?'Keep finding the corners':'Another round?'};}
