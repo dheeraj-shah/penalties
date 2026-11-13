@@ -15,12 +15,13 @@ try{const saved=JSON.parse(sessionStorage.getItem('penalties')||'null');if(saved
 let generatedCode='',generatedLayers={},generatedState={},codeRevisions=[],generatedTargets=[],generatedKeeper=null,generatedPitch=null,generatedBall=null,generatedScene=null;
 const generatedInput=phase=>({phase,aim,shot,goals:round.filter(x=>x==='goal').length,remaining:Math.max(0,config.attempts-round.length)});
 const prompts=[
- ['Create an original superhero goalkeeper',{}],['Replace the pitch with a moon surface',{}],['Add a UFO above the goal',{}],['Give the UI a medieval castle theme',{}],
- ['Turn the goalkeeper into a dinosaur',{}],['Add a rainbow behind the goal',{}],['Make it snow inside the stadium',{}],['Turn the football into a tiny ringed planet',{}],
+ ['Turn the ball into cheese',{}],['Turn the goalkeeper into a dinosaur',{}],['Replace the pitch with a moon surface',{}],['Add a UFO above the goal',{}],
+ ['Add a rainbow behind the goal',{}],['Turn the football into a tiny ringed planet',{}],['Add a power shot',{shots:['standard','power']}],['Add a finesse shot',{shots:['standard','finesse']}],
+ ['Create an original superhero goalkeeper',{}],['Make it snow inside the stadium',{}],
  ['Replace the penalty taker with a dinosaur',{playerCharacter:'dinosaur'}],['Bring back the human player',{playerCharacter:'human'}],
  ['Put the stadium in space',{backdrop:'space'}],['Add mountains behind the goal',{backdrop:'mountains'}],['Remove the crowd',{crowd:false}],
- ['Add a chip shot',{shots:['standard','chip']}],['Make the ball pink',{ballColor:'pink'}],['Add a finesse shot',{shots:['standard','finesse']}],['Give the keeper a blue kit',{keeperColor:'blue'}],
- ['Add a power shot',{shots:['standard','power']}],['Switch to a night pitch',{pitch:'night'}],['Make the keeper harder',{difficulty:'hard'}],['Give me five attempts',{attempts:5}],
+ ['Add a chip shot',{shots:['standard','chip']}],['Make the ball pink',{ballColor:'pink'}],['Give the keeper a blue kit',{keeperColor:'blue'}],
+ ['Switch to a night pitch',{pitch:'night'}],['Make the keeper harder',{difficulty:'hard'}],['Give me five attempts',{attempts:5}],
  ['Add low driven shots',{shots:['standard','low driven']}],['Make the goalposts gold',{goalColor:'gold'}],['Show my scoring streak',{showStreak:true}],['Make the power shot faster',{powerSpeed:1.5}],
  ['Add a trivela shot',{shots:['standard','trivela']}],['Give me ten attempts',{attempts:10}],['Make the keeper easier',{difficulty:'easy'}],['Make the ball yellow',{ballColor:'yellow'}],
  ['Use a light UI',{theme:'light'}],['Use a neon UI',{theme:'neon'}],['Make the buttons pink',{accent:'pink'}],['Use a monospace font',{font:'mono'}],
