@@ -46,7 +46,7 @@ Use your own Cloudflare account and D1 database. The live demo uses a dedicated 
 1. Create a D1 database and run `schema.sql` and the `AUTH_SCHEMA` exported by `auth.js` against it.
 2. Copy `wrangler.example.jsonc` to `wrangler.jsonc`, set your database ID and domain routes.
 3. Run `npm run build`, `npm test`, and `python3 budget_test.py`.
-4. Deploy with an authenticated Wrangler CLI, or upload `worker.js`, `game.js`, `ui.js`, `auth.js`, `telemetry.js`, `sandbox-policy.js`, and generated `assets.js` as ES modules using the Workers API. Main module is `worker.js`. Bind D1 as `DB`.
+4. Deploy with an authenticated Wrangler CLI, or upload `worker.js`, `game.js`, `ui.js`, `auth.js`, `sandbox-policy.js`, and generated `assets.js` as ES modules using the Workers API. Main module is `worker.js`. Bind D1 as `DB`.
 5. In **Cloudflare → Workers & Pages → your Worker → Settings → Variables and Secrets**, add `CEREBRAS_API_KEY` as a **Secret**, not a plaintext variable. Never paste the key into GitHub, a chat, source code or browser code.
 6. Verify the balance, active credits and current rates in your Cerebras dashboard. Then explicitly set plaintext variable `AI_ENABLED` to `true` to activate paid requests. Set it to `false` to stop AI calls without disabling the game.
 7. Configure `DEMO_PASSWORD_HASH` (PBKDF2-SHA256 verifier, see `derivePasswordHash` in auth.js) and a random `DEMO_SESSION_SECRET` as Worker secrets. Never put the shared password in source, frontend, logs or a plaintext variable. Login is required for pages, assets and APIs.
@@ -97,10 +97,3 @@ Pages return `X-Robots-Tag: noindex, nofollow`; login/game include robots meta. 
 Named UI themes can generate arbitrary six-digit palette colors and bounded font, border, radius and spacing values through `ui.js`; they are not limited to preset palettes. CSS selectors/layout rules, URLs and arbitrary host DOM code remain prohibited. Reset/Undo restore prior custom UI values.
 
 Top-level generated-code `targets` must name scene, keeper, pitch and/or rules. The host does not depend on the function returning replacement flags. Empty scenery and empty keeper sprites are rejected rather than reported as applied.
-
-### Anonymous demo browser notices
-`browser_visits` stores only a random browser ID, first/last authenticated game-page visit timestamps, and delivery status. No names, raw IP addresses, prompts, or authentication tokens are stored in this table. Browser records become eligible for deletion after 7 days of inactivity and are removed during daily cleanup (or an authenticated game-page visit). Count cookies expire seven days after their last refresh. A new record is a browser signal, never proof of a new person. Existing rate-limit tables remain separate and are not visitor analytics.
-
-`/penalties/privacy` explains the count and offers a same-origin POST exclusion. Exclusion deletes that browser's record and sets a fixed non-identifying opt-out cookie for one year. Clearing cookies/another browser removes the exclusion, so owner/test exclusions must be verified in every browser before enabling notices. Authentication still protects both privacy and count routes.
-
-Initialize `TELEMETRY_SCHEMA` from `telemetry.js` before deploying. Monitoring must prune `last_seen < now-7days`, deduplicate by browser ID, preserve uncertain delivery state (never blindly retry), and never equate a browser with a person. No monitor is automatically enabled by this code.
