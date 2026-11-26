@@ -1,5 +1,7 @@
 # Penalties
 
+Looking for the current live game? See the [public v291 browser source](live-v1/README.md) and [release history](docs/live-release-history.md). The original development and deployment instructions below describe the older GitHub build.
+
 **Ten kicks. Your rules.** A tiny browser football game with a Qwen-powered game studio, hosted on Cloudflare Workers.
 
 Demo: https://dheerajshah.com/penalties

@@ -1,0 +1,2098 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{color-scheme:dark;--bg:#101917;--panel:#17221f;--line:#2d3a34;--muted:#8eaaa0;--text:#edf4e9;--accent:#cbf78a}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px 'DM Sans',system-ui,sans-serif}button,a,textarea{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer}button:disabled{cursor:not-allowed;opacity:.45}button:focus-visible,a:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:4px}header{height:92px;display:flex;align-items:center;justify-content:space-between;max-width:1440px;margin:auto;padding:0 44px;border-bottom:1px solid var(--line)}a{color:inherit;text-decoration:none}.brand{font:700 29px 'Space Grotesk',sans-serif;letter-spacing:-1.6px;display:flex;align-items:center}.mark{display:grid;place-items:center;background:var(--accent);color:var(--bg);width:31px;height:31px;border-radius:50%;font-size:25px;margin-right:10px}.dot{color:var(--accent)}.powered{color:var(--muted);font-size:12px}.powered strong{color:var(--text);font-weight:500;margin-left:6px}.home{color:var(--muted);font-size:12px}main{max-width:1440px;margin:32px auto;display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:28px;padding:0 44px}.game-heading{display:flex;justify-content:space-between;align-items:center;margin:0 0 24px}.eyebrow{font-size:10px;letter-spacing:2px;color:var(--accent);font-weight:600}h1{font:500 clamp(27px,3vw,40px)/1.12 'Space Grotesk',sans-serif;letter-spacing:-1.7px;margin:13px 0 0}h1 em{font-style:normal;color:var(--muted)}.text-button{background:none;color:var(--muted);border:0;font-size:12px;padding:8px 0}.text-button:hover{color:var(--text)}.arena{border:1px solid #365344;position:relative;border-radius:16px;overflow:hidden;background:#294c38;aspect-ratio:1000/610}canvas{width:100%;height:100%;display:block}.scoreboard{position:absolute;top:22px;left:24px;display:flex;gap:20px;z-index:1;background:#0c2119b8;backdrop-filter:blur(8px);border:1px solid #ffffff12;padding:12px 18px;border-radius:10px}.scoreboard>div{display:flex;flex-direction:column;gap:3px}.scoreboard>div[hidden]{display:none}.scoreboard .label{font-size:8px;letter-spacing:1.3px;color:#b2c5b7}.scoreboard strong{font:500 27px 'Space Grotesk',sans-serif}.scoreboard .divider{width:1px;background:#ffffff22}.match-label{position:absolute;top:29px;right:24px;display:flex;align-items:center;gap:7px;color:#d9e8da;font-size:9px;letter-spacing:1px}.match-label>span:first-child{width:5px;height:5px;background:var(--accent);border-radius:50%}.result{position:absolute;bottom:40px;width:100%;text-align:center;font:500 18px 'Space Grotesk',sans-serif;text-shadow:0 2px 12px #000}.round-dots{position:absolute;bottom:20px;width:100%;display:flex;justify-content:center;gap:6px}.round-dots i{display:block;width:6px;height:6px;background:#ffffff40;border-radius:50%}.round-dots .goal{background:var(--accent)}.round-dots .save,.round-dots .miss{background:#fbac91}.controls{padding:20px 0 0}.control-row{display:flex;align-items:center;gap:15px;margin-bottom:14px}.control-label{color:#647e71;font-size:11px;white-space:nowrap}.control-label b{font-weight:400;color:var(--muted);margin-left:9px}.shot-options{display:flex;flex-wrap:wrap;gap:6px}.shot-options button{color:var(--muted);border:1px solid var(--line);border-radius:20px;background:none;padding:7px 12px;font-size:11px;text-transform:capitalize}.shot-options button[aria-pressed=true]{color:var(--accent);border-color:#779a55;background:#263420}.aim-options{display:flex;gap:5px;flex:1}.aim-options button{border:1px solid var(--line);background:var(--panel);color:var(--muted);border-radius:7px;padding:12px 8px;flex:1;font-size:12px}.aim-options button[aria-pressed=true]{background:#304334;border-color:#6a8456;color:var(--text)}.shoot-button{background:var(--accent);border:0;color:#162014;padding:12px 22px;border-radius:7px;min-width:128px;font-weight:700;display:flex;justify-content:space-between;gap:30px}.shoot-button:hover{background:#ddffa9}.game-note{font-size:10px;color:#6d897a;margin:16px 0 0}.chat-panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;display:flex;flex-direction:column;overflow:hidden;min-height:620px;max-height:850px}.chat-head{padding:22px 20px;display:flex;gap:12px;align-items:center;border-bottom:1px solid var(--line)}.ai-mark{width:35px;height:35px;border-radius:10px;display:grid;place-items:center;background:#2c3d28;color:var(--accent);font-size:26px}h2{margin:0;font:500 16px 'Space Grotesk',sans-serif;letter-spacing:-.3px}.chat-head p{font-size:11px;color:var(--muted);margin:5px 0 0}.icon-button{margin-left:auto;background:none;color:var(--muted);border:0;font-size:21px}.connection{font-size:10px;color:var(--muted);padding:10px 20px;border-bottom:1px solid var(--line);line-height:1.5}.history{flex:1;overflow-y:auto;padding:22px 18px;min-height:180px;max-height:420px;scroll-behavior:smooth}.message{font-size:12px;line-height:1.65;margin:0 0 18px;overflow-wrap:anywhere}.message .who{font-size:9px;letter-spacing:1px;color:var(--muted);margin-bottom:5px}.message.user{margin-left:32px;background:#25332c;border:1px solid #34473b;padding:11px 13px;border-radius:12px 12px 2px 12px}.message.assistant{margin-right:9px}.message .changes{margin-top:8px;color:var(--accent);font-size:11px}.message .time{color:#779183;font-size:9px;margin-top:6px}.composer{padding:16px 18px;border-top:1px solid var(--line);margin-top:auto}.suggestion-head{display:flex;align-items:center;justify-content:space-between;color:#789183;font-size:9px;letter-spacing:1px}.suggestions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:8px 0 16px}.suggestions button{padding:10px;text-align:left;background:#1c2a23;border:1px solid #334235;border-radius:7px;font-size:10px;line-height:1.5;color:#c1d2c4}.suggestions button:hover{border-color:#78935c;color:var(--accent)}form{position:relative}textarea{width:100%;resize:none;background:#101a15;border:1px solid #3c4e3d;border-radius:9px;padding:14px 44px 12px 12px;color:var(--text);font:12px/1.5 inherit;min-height:74px}textarea::placeholder{color:#7f9786}#send{position:absolute;right:9px;bottom:13px;border:0;border-radius:7px;background:var(--accent);width:29px;height:29px;font-size:21px;color:#142311}.privacy{font-size:9px;color:#7a9181;line-height:1.55;margin:9px 0}.reset-settings{border:0;background:none;color:#8ba58f;padding:5px 0;font-size:10px;text-decoration:underline;text-underline-offset:3px}footer{max-width:1440px;margin:0 auto;padding:0 44px 28px;display:flex;justify-content:space-between;font-size:10px;color:#60786b}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(min-width:1500px){main{margin-top:45px}}@media(max-width:1100px){main{grid-template-columns:minmax(0,1fr) 320px;padding:0 25px;gap:20px}header{padding:0 25px}.control-row{flex-wrap:wrap}.control-label{width:100%}.shoot-button{min-width:100px}.scoreboard{top:14px;left:14px;padding:9px 12px;gap:12px}.match-label{top:22px;right:14px}.scoreboard strong{font-size:22px}.result{font-size:15px;bottom:33px}footer{padding:0 25px 24px}}@media(max-width:780px){header{height:72px;padding:0 20px}.brand{font-size:25px}.powered{display:none}main{display:flex;flex-direction:column;padding:0 16px;margin:23px auto;gap:25px}.game-heading{margin-bottom:20px}h1{font-size:31px}.arena{aspect-ratio:1000/680}.scoreboard{top:12px;left:12px}.scoreboard .label{font-size:7px}.match-label{font-size:7px}.control-row{gap:9px}.aim-options button{padding:13px 6px}.shoot-button{padding:13px 18px}.chat-panel{min-height:540px;max-height:none}.history{max-height:300px;min-height:150px}.chat-head{padding:20px}.result{bottom:32px}.round-dots{bottom:17px}.game-note{font-size:9px}footer{padding:0 20px 24px;font-size:9px;gap:20px}}@media(prefers-reduced-motion:reduce){.history{scroll-behavior:auto}}
+.change-trace{margin-top:11px;border:1px solid #34473b;border-radius:8px;background:#111c16;font-size:10px}.change-trace summary{cursor:pointer;padding:10px;color:var(--accent);font-size:11px}.change-trace p{padding:0 10px;margin:0 0 10px;color:var(--muted);font-size:10px;line-height:1.5}.trace-label{padding:0 10px;margin-top:10px;color:#90ac99;font-size:9px;text-transform:uppercase;letter-spacing:.8px}.change-trace pre{margin:5px 10px 10px;padding:9px;background:#0b140e;border-radius:5px;color:#cce1c9;white-space:pre-wrap;overflow-wrap:anywhere;font:10px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace}.change-trace summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.result[data-outcome=goal]{color:#dcffa5}.result[data-outcome=miss],.result[data-outcome=save]{color:#ffe0c5}
+.game-heading h1{margin:0}.control-label b{margin-left:0}.control-label{min-width:32px}.shot-options button.is-new{border-color:var(--accent);box-shadow:0 0 0 2px #cbf78a22;background:#34492a;color:#e5ffbc}.new-tag{font-size:7px;letter-spacing:.6px;margin-left:7px;background:var(--accent);color:#17231a;border-radius:3px;padding:2px 4px;font-weight:700}.change-feedback{margin-top:14px;border-left:3px solid var(--accent);border-radius:0 7px 7px 0;background:#283b27;padding:12px 15px;color:#dfffad;font:500 13px/1.4 'Space Grotesk',sans-serif}.change-feedback[hidden]{display:none}
+/* Keep the complete game and composer in the viewport; only history/options scroll. */
+html,body{height:100%;overflow:hidden}body{height:100dvh;display:flex;flex-direction:column}header{height:64px;min-height:64px;width:100%;padding:0 28px}main{flex:1;min-height:0;width:100%;margin:16px auto;padding:0 28px;gap:24px;grid-template-rows:minmax(0,1fr)}.game-panel{display:flex;flex-direction:column;min-height:0}.game-heading{flex:none;margin:0 0 14px}.game-heading h1{font-size:28px;line-height:1.1}.arena{flex:1;min-height:0;aspect-ratio:auto}canvas{object-fit:contain}.controls{flex:none;padding-top:14px}.control-row{margin-bottom:10px}.control-row:last-child{margin-bottom:0}.shot-options{flex:1;min-width:0;flex-wrap:nowrap;overflow-x:auto;padding:3px 1px}.shot-options button{flex-shrink:0}.chat-panel{min-height:0;max-height:none}.chat-head{padding:16px}.history{min-height:0;max-height:none;flex:1}.composer{flex:none;padding:12px 16px}.suggestions{margin:6px 0 10px}.privacy{margin:6px 0}.change-feedback{flex:none;margin-top:10px;padding:8px 12px;font-size:12px}
+@media(max-width:1100px){.control-label{width:auto}.control-row{flex-wrap:nowrap}.shoot-button{min-width:95px;gap:14px}.game-heading h1{font-size:25px}}
+@media(max-width:780px){header{height:44px;min-height:44px;padding:0 14px}.brand{font-size:22px}.mark{width:25px;height:25px;font-size:21px}.home{font-size:10px}main{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1.12fr) minmax(0,1fr);margin:9px auto;padding:0 10px;gap:10px}.game-heading{margin-bottom:7px}.game-heading h1{font-size:19px;letter-spacing:-.6px}.game-heading .text-button{padding:3px 0;font-size:10px}.arena{border-radius:10px}.controls{padding-top:5px}.control-row{gap:7px;margin-bottom:4px}.control-label{font-size:10px;min-width:23px}.shot-options{gap:5px}.shot-options button{padding:6px 10px;min-height:30px;font-size:10px}.aim-options button{padding:10px 5px;min-height:38px;font-size:11px}.shoot-button{padding:10px 16px;min-height:38px;font-size:12px;min-width:95px}.scoreboard{top:8px;left:9px;padding:6px 10px;gap:12px;border-radius:7px}.scoreboard strong{font-size:18px}.scoreboard .label{font-size:6px;letter-spacing:.7px}.result{font-size:11px;bottom:19px}.round-dots{bottom:9px;gap:5px}.round-dots i{width:4px;height:4px}.chat-panel{border-radius:10px;min-height:0}.chat-head{padding:8px 12px;gap:8px}.chat-head h2{font-size:13px}.ai-mark{width:24px;height:24px;font-size:20px;border-radius:7px}.connection{padding:5px 12px;font-size:8px}.history{padding:10px 12px;min-height:0;max-height:none}.message{font-size:11px;margin-bottom:12px}.message .who{font-size:8px}.message.user{padding:6px 10px;margin-left:28px}.composer{padding:6px 10px}.suggestion-head{height:16px}.suggestion-head .text-button{font-size:9px;padding:0}.suggestions{display:flex;overflow-x:auto;gap:5px;margin:4px 0 6px;scrollbar-width:thin}.suggestions button{flex:0 0 110px;min-height:31px;padding:5px 7px;font-size:9px;line-height:1.25}textarea{min-height:40px;height:40px;padding:10px 42px 7px 10px;font-size:12px}#send{bottom:8px;width:28px;height:28px}.privacy{font-size:8px;line-height:1.3;margin:3px 0}.reset-settings{font-size:9px;padding:1px 0}.change-feedback{margin-top:4px;padding:4px 8px;font-size:10px;line-height:1.3}.change-trace summary{font-size:10px;padding:7px}}
+@media(max-height:600px) and (max-width:780px){.game-heading{display:none}.chat-head{padding:5px 10px}.connection{padding:3px 10px}.composer{padding:4px 8px}.privacy{font-size:7px}.history{padding:7px 10px}.scoreboard{padding:4px 7px}.scoreboard strong{font-size:15px}}
+@media(max-height:520px) and (min-width:600px){header{height:40px;min-height:40px}main{display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,.75fr);grid-template-rows:minmax(0,1fr);margin:7px auto;padding:0 12px;gap:12px}.game-heading{display:none}.chat-head{padding:6px 10px}.connection{padding:4px 10px;font-size:9px}.history{min-height:0;padding:8px 10px}.composer{padding:6px 10px}.suggestions{display:flex;overflow-x:auto}.suggestions button{flex:0 0 100px;padding:5px 7px;font-size:9px}.suggestion-head{height:16px}.suggestion-head .text-button{padding:0;font-size:9px}textarea{height:40px;min-height:40px}.privacy{font-size:8px;line-height:1.2}.reset-settings{font-size:9px;padding:1px 0}.controls{padding-top:5px}.control-row{margin-bottom:4px}.game-heading h1{font-size:18px}.scoreboard{padding:5px 9px;top:8px;left:8px}.scoreboard strong{font-size:16px}.result{font-size:11px;bottom:19px}.round-dots{bottom:9px}}
+.live-code{margin-top:10px;background:#0c1711;border:1px solid var(--line);border-radius:8px;overflow:hidden}.live-code .trace-label{padding:8px 10px 0;font-size:8px;color:var(--accent)}.live-code pre{margin:0;padding:8px 10px;color:#d7edca;white-space:pre-wrap;overflow-wrap:anywhere;font:10px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace}
+body[data-accent=pink]{--accent:#ff9ecb}body[data-accent=blue]{--accent:#94c9ff}body[data-accent=gold]{--accent:#f6cd6e}body[data-theme=neon]{--bg:#101222;--panel:#191c32;--line:#353959;--muted:#a4a8cf;--text:#f1efff}body[data-theme=light]{color-scheme:light;--bg:#f3f5ed;--panel:#ffffff;--line:#cbd4c6;--muted:#526b59;--text:#152c1d}body[data-theme=light] .shot-options button[aria-pressed=true],body[data-theme=light] .aim-options button[aria-pressed=true]{color:#16321e;background:#dce9d2}body[data-theme=light] .message.user{background:#e7eee1;border-color:#cbd4c6}body[data-theme=light] .suggestions button{background:#edf2e7;color:#24462c;border-color:#c6d4bd}body[data-theme=light] textarea{background:#fff;color:#172e1e;border-color:#a7bca3}body[data-theme=light] .reset-settings,body[data-theme=light] .privacy{color:#526b59}body[data-theme=light] .shot-options button.is-new{color:#1e3a16}body[data-font=mono],body[data-font=mono] h1,body[data-font=mono] h2,body[data-font=mono] .scoreboard strong{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}body[data-corners=square] :is(.arena,.chat-panel,button,textarea,.scoreboard,.message.user,.live-code){border-radius:2px}body[data-chat-side=left] .chat-panel{grid-column:1;grid-row:1}body[data-chat-side=left] .game-panel{grid-column:2;grid-row:1}body[data-chat-side=left] main{grid-template-columns:360px minmax(0,1fr)}
+@media(max-width:1100px){body[data-chat-side=left] main{grid-template-columns:320px minmax(0,1fr)}}@media(max-width:780px){body[data-chat-side=left] main{grid-template-columns:minmax(0,1fr)}body[data-chat-side=left] .game-panel{grid-column:1;grid-row:1}body[data-chat-side=left] .chat-panel{grid-column:1;grid-row:2}.live-code pre{font-size:9px}}
+@media(max-height:520px) and (min-width:600px){body[data-chat-side=left] main{grid-template-columns:minmax(250px,.75fr) minmax(0,1fr)}body[data-chat-side=left] .chat-panel{grid-column:1;grid-row:1}body[data-chat-side=left] .game-panel{grid-column:2;grid-row:1}}
+
+/* Stable geometry: transient feedback must never resize the pitch. */
+body{height:100svh}.game-panel{position:relative}.change-feedback{position:absolute;z-index:3;top:44px;left:12px;right:12px;margin:0;pointer-events:none;max-height:48px;overflow:hidden}.history{scroll-behavior:auto;overflow-anchor:none;overscroll-behavior:contain;scrollbar-gutter:stable}.suggestions button{height:50px;overflow:hidden}.shot-options{height:39px}.connection{min-height:36px}.scoreboard{color:#edf4e9}
+@media(max-width:780px){.change-feedback{top:30px;max-height:35px;left:8px;right:8px}.suggestions button{height:34px}.shot-options{height:36px}.connection{min-height:23px}}
+@media(max-height:600px) and (max-width:780px){.change-feedback{top:5px}.connection{min-height:20px}}
+@media(max-height:520px) and (min-width:600px){.change-feedback{top:5px}.suggestions button{height:35px}}
+#generated-layer{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none;z-index:0}.scoreboard,.result,.round-dots{z-index:1}#undo-code{margin-left:12px}
+/* Model-chosen values, trusted selectors: no generated CSS rules or remote URLs. */
+body[data-custom-ui=true]{font-family:var(--ui-font,system-ui,sans-serif)}body[data-custom-ui=true] :is(h1,h2,.brand,.scoreboard strong,button,textarea){font-family:var(--ui-font,system-ui,sans-serif);letter-spacing:var(--ui-letter-spacing,0px)}body[data-custom-ui=true] :is(h1,h2){font-weight:var(--ui-heading-weight,500)}body[data-custom-ui=true] :is(.arena,.chat-panel,button,textarea,.scoreboard,.message.user,.live-code){border-radius:var(--ui-radius,8px);border-width:var(--ui-border-width,1px)}body[data-custom-ui=true] :is(.suggestions button,.shot-options button,.aim-options button,.message.user,textarea,.live-code){background:var(--panel);color:var(--text);border-color:var(--line)}body[data-custom-ui=true] :is(.shot-options button[aria-pressed=true],.aim-options button[aria-pressed=true]){color:var(--accent);border-color:var(--accent)}body[data-custom-ui=true] :is(.shoot-button,#send){background:var(--ui-button-bg,var(--accent));color:var(--ui-button-text,var(--bg));border:var(--ui-border-width,1px) solid var(--ui-button-border,var(--accent))}body[data-custom-ui=true] .live-code pre{color:var(--text)}body[data-custom-ui=true] .ai-mark{color:var(--accent);background:var(--bg)}
+/* Shrink the drawing surface, never push essential controls below the window. */
+body{height:100dvh;min-height:0;display:grid;grid-template-rows:auto minmax(0,1fr)}
+header{margin:0 auto;flex:none}
+main{height:100%;min-height:0;margin:0 auto;padding-top:12px;padding-bottom:max(24px,env(safe-area-inset-bottom));overflow:hidden}
+.game-panel,.chat-panel{min-width:0;min-height:0}
+.arena{flex:1 1 0;min-height:0;contain:size}
+#pitch{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.controls,.game-heading,.chat-head,.connection,.composer{flex-shrink:0}
+@media(max-height:760px){
+ header{height:44px;min-height:44px}.brand{font-size:23px}.mark{width:26px;height:26px}
+ main{padding-top:8px;gap:16px}.game-heading{display:flex;margin-bottom:8px;gap:10px}.game-heading h1{font-size:21px;letter-spacing:-.5px}.game-heading .text-button{white-space:nowrap}
+ .controls{padding-top:7px}.control-row{margin-bottom:5px}
+ .chat-head{padding:8px 12px}.connection{padding:4px 12px;min-height:26px}.history{padding:8px 12px}
+ .composer{padding:7px 12px}.suggestions{display:flex;overflow-x:auto;margin:4px 0 6px}.suggestions button{flex:0 0 120px;height:35px;min-height:35px;padding:5px 7px;font-size:10px}
+ .suggestion-head{height:20px}.suggestion-head .text-button{padding:0}.privacy{font-size:8px;line-height:1.3;margin:4px 0}
+ textarea{height:44px;min-height:44px}.reset-settings{padding:3px 0}.scoreboard{padding:5px 9px;top:8px;left:8px;gap:10px}.scoreboard strong{font-size:18px}
+}
+@media(max-width:780px){
+ main{padding-top:6px;padding-bottom:max(12px,env(safe-area-inset-bottom));gap:8px}
+ .game-heading{display:flex;margin-bottom:5px}.game-heading h1{font-size:17px}.game-heading .text-button{font-size:10px}
+ .shot-options{height:40px}.shot-options button{min-height:36px}.aim-options button,.shoot-button{min-height:40px}
+ .chat-head{padding:6px 10px}.connection{min-height:22px}.composer{padding:5px 10px}.history{padding:6px 10px}
+}
+/* Very small windows / on-screen keyboards cannot fit both useful panes.
+   Keep every control reachable by scrolling its pane, rather than clipping it. */
+@media(max-height:420px) and (min-width:781px){
+ main{padding-bottom:max(12px,env(safe-area-inset-bottom))}.game-panel,.chat-panel{overflow-y:auto;overscroll-behavior:contain}
+ .arena{flex:none;min-height:160px}.history{flex:none;min-height:64px;max-height:120px}.game-heading h1{font-size:17px}
+}
+@media(max-height:650px) and (max-width:780px){
+ .game-panel,.chat-panel{overflow-y:auto;overscroll-behavior:contain}.arena{flex:1 0 130px}.history{flex:1 0 48px}.composer{flex:none}
+}
+/* A desktop Dock can cover the browser without changing its viewport.
+   Reserve deliberate space; this does not attempt OS Dock detection. */
+@media(min-width:781px){main{padding-bottom:max(110px,env(safe-area-inset-bottom))}}
+@media(max-height:530px) and (min-width:781px){
+ .game-panel,.chat-panel{overflow-y:auto;overscroll-behavior:contain}
+ .arena{flex:none;min-height:160px}.history{flex:none;min-height:64px;max-height:120px}
+ .game-heading h1{font-size:17px}
+}
+/* Static feedback, no new animation or continuous effects. */
+.round-summary{position:absolute;z-index:4;inset:12% 20%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:var(--panel);color:var(--text);border:1px solid var(--accent);border-radius:14px;box-shadow:0 12px 40px #0006;padding:12px;text-align:center}.round-summary[hidden]{display:none}.round-summary>span{font-size:9px;letter-spacing:2px;color:var(--accent)}.round-summary strong{font:600 clamp(24px,4vw,50px)/1.1 'Space Grotesk',sans-serif}.round-summary p{margin:2px;font-size:11px;color:var(--muted)}.round-summary button{background:var(--accent);color:var(--bg);border:0;border-radius:7px;padding:9px 16px;min-height:38px;font-weight:600}.reset-settings{display:inline-block;min-height:32px;padding:6px 10px;border:1px solid var(--line);border-radius:6px;text-decoration:none;color:var(--text)}#undo-code{color:var(--accent);border-color:var(--accent);margin-left:7px}.message .changes{border-left:2px solid var(--accent);padding-left:9px}.result{padding:0 12px;font-size:12px}@media(max-width:780px){.round-summary{inset:4% 12%;gap:2px;padding:7px}.round-summary h2{font-size:12px}.round-summary strong{font-size:24px}.round-summary button{padding:5px 12px;min-height:32px}.reset-settings{min-height:28px;padding:4px 8px;font-size:10px}.result{font-size:10px}}
+.generation-timing{position:absolute;top:10px;right:10px;z-index:3;display:flex;flex-direction:column;gap:4px;max-width:52%;padding:8px 11px;border:1px solid #ffffff25;border-radius:8px;background:#101b18e8;color:#edf4e9;pointer-events:none}.generation-timing[hidden]{display:none}.generation-timing strong{font-size:12px;font-weight:600}.generation-timing span{font-size:9px;color:#bbcec2}.generation-timing[data-phase=ready] strong{color:#cbf78a}.generation-timing[data-phase=failed] strong{color:#ffc1a8}@media(max-width:780px){.generation-timing{top:6px;right:6px;gap:2px;padding:5px 7px;max-width:51%}.generation-timing strong{font-size:10px}.generation-timing span{font-size:7px}}
+
+
+.prompt-notice{font-size:12px;line-height:1.45;color:var(--muted);margin:8px 0}
+
+/* React Bits PromptBar JS-CSS, adapted for the existing vanilla composer. */
+.prompt-bar {
+  --pb-bg: #27272a;
+  --pb-ink: #f5f5f5;
+  --pb-menu: #323236;
+  --pb-w: 400px;
+  --pb-radius: 16px;
+  --pb-press: 0.96;
+  --pb-spark: #b39dff;
+  --pb-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --pb-muted: color-mix(in srgb, var(--pb-ink) 55%, transparent);
+  --pb-hover: color-mix(in srgb, var(--pb-ink) 8%, transparent);
+
+  position: relative;
+  width: min(var(--pb-w), 100%);
+  color: var(--pb-ink);
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 22px;
+}
+.prompt-bar__input {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 14px;
+  line-height: 22px;
+  resize: none;
+  outline: none;
+  overflow-wrap: anywhere;
+}
+.prompt-bar__input::placeholder {
+  color: color-mix(in srgb, var(--pb-ink) 45%, transparent);
+}
+.prompt-bar__bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.prompt-bar__spacer {
+  flex: 1 1 auto;
+}
+.prompt-bar__glyph {
+  display: block;
+  width: 16px;
+  height: 16px;
+  transform-origin: 50% 50%;
+}
+.prompt-bar__field {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: var(--pb-radius);
+  background: var(--pb-bg);
+  cursor: text;
+}
+
+.prompt-bar__send {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--pb-ink) 12%, var(--pb-bg));
+  color: color-mix(in srgb, var(--pb-ink) 55%, var(--pb-bg));
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    transform 160ms var(--pb-ease-out);
+}
+
+.prompt-bar__send:disabled {
+  cursor: default;
+}
+
+.prompt-bar__send[data-armed] {
+  background: var(--pb-ink);
+  color: var(--pb-bg);
+}
+
+.prompt-bar__send[data-pressed] {
+  transform: scale(var(--pb-press));
+}
+
+
+#chat-form.prompt-bar{--pb-bg:var(--bg);--pb-ink:var(--text);--pb-w:100%;--pb-spark:var(--accent);margin:0}
+.prompt-bar__field{border:1px solid var(--line);transition:border-color 180ms ease,box-shadow 180ms ease}
+.prompt-bar__field:focus-within{border-color:var(--accent);box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 20%,transparent)}
+#prompt.prompt-bar__input{height:22px;min-height:22px;max-height:88px;padding:0;border:0;border-radius:0;background:transparent;color:var(--text);font:inherit;font-size:14px;line-height:22px;outline:none;resize:none}
+.prompt-bar__model{font-size:11px;line-height:20px;color:var(--muted)}
+#send.prompt-bar__send{position:relative;inset:auto;width:32px;height:32px;border:0;border-radius:8px;padding:0;font:inherit;background:color-mix(in srgb,var(--pb-ink) 12%,var(--pb-bg));color:color-mix(in srgb,var(--pb-ink) 55%,var(--pb-bg))}
+#send.prompt-bar__send[data-armed]{background:var(--pb-ink);color:var(--pb-bg)}
+#send.prompt-bar__send:active:not(:disabled){transform:scale(.96)}
+#send.prompt-bar__send:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+#send.prompt-bar__send[aria-busy=true] .prompt-bar__glyph{animation:promptbar-pulse 1s ease-in-out infinite}
+@keyframes promptbar-pulse{50%{opacity:.35}}
+@media(pointer:coarse){#prompt.prompt-bar__input{font-size:16px}#send.prompt-bar__send{width:40px;height:40px}}
+@media(max-height:700px){.prompt-bar__field{padding:8px;gap:4px}#prompt.prompt-bar__input{max-height:66px}}
+@media(prefers-reduced-motion:reduce){.prompt-bar__field,#send.prompt-bar__send{transition:none}#send.prompt-bar__send[aria-busy=true] .prompt-bar__glyph{animation:none}}
+
+/* React Bits PromptBar license:
+MIT + Commons Clause License Condition v1.0
+
+Copyright (c) 2026 David Haz
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, and distribute the Software **as part of an application, website, or product**, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+## Commons Clause Restriction
+
+You may use this Software, including for any commercial purpose, **so long as you do not sell, sublicense, or redistribute the components themselves-whether alone, in a bundle, or as a ported version.**
+
+The same restriction covers the React Bits tools (Background Studio, Texture Lab, Shape Magic, Center Stage, Sound Lab and any tools added later) and the sounds in the sound library. **You may not sell, sublicense, or redistribute the tools or the sounds themselves, or offer the tools or a substantially similar copy of them as a hosted service-whether alone, in a bundle, or as a ported version.**
+
+What you make with the tools is yours to use. You can use exported code, images, videos, and audio files in any personal or commercial application, website, or product, including paid ones. **You may not sell or redistribute the exports on their own, either individually or as the product itself, such as a sound, texture, background, or template pack.**
+
+## No Warranty
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+.prompt-bar {
+  --pb-bg: #27272a;
+  --pb-ink: #f5f5f5;
+  --pb-menu: #323236;
+  --pb-w: 400px;
+  --pb-radius: 16px;
+  --pb-press: 0.96;
+  --pb-spark: #b39dff;
+  --pb-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --pb-muted: color-mix(in srgb, var(--pb-ink) 55%, transparent);
+  --pb-hover: color-mix(in srgb, var(--pb-ink) 8%, transparent);
+
+  position: relative;
+  width: min(var(--pb-w), 100%);
+  color: var(--pb-ink);
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.prompt-bar__menu {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 8px);
+  left: 0;
+  z-index: 2;
+  padding: 4px;
+  border-radius: 12px;
+  background: var(--pb-menu);
+  box-shadow:
+    0 10px 30px -10px rgba(0, 0, 0, 0.35),
+    0 1px 2px rgba(0, 0, 0, 0.08);
+  transform-origin: bottom center;
+  animation: prompt-bar-pop 180ms var(--pb-ease-out) both;
+}
+
+.prompt-bar__menu[data-kind='model'] {
+  right: auto;
+  width: 200px;
+  transform-origin: bottom left;
+}
+
+@keyframes prompt-bar-pop {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.98);
+  }
+}
+
+.prompt-bar__glow {
+  position: absolute;
+  right: 4px;
+  left: 4px;
+  border-radius: 8px;
+  background: var(--pb-hover);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    top 220ms var(--pb-ease-out),
+    height 220ms var(--pb-ease-out),
+    opacity 150ms ease;
+}
+
+.prompt-bar__row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 36px;
+  padding: 0 8px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.prompt-bar__row-icon {
+  display: inline-flex;
+  flex: none;
+  justify-content: center;
+  width: 20px;
+  color: color-mix(in srgb, var(--pb-ink) 70%, transparent);
+}
+
+.prompt-bar__row-name {
+  flex: none;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.prompt-bar__row-desc {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--pb-muted);
+  font-size: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.prompt-bar__row-tag {
+  flex: none;
+  margin-left: auto;
+  color: var(--pb-muted);
+  font-size: 11px;
+}
+
+.prompt-bar__row-check {
+  display: inline-flex;
+  flex: none;
+  justify-content: center;
+  width: 16px;
+  opacity: 0;
+}
+
+.prompt-bar__row-check[data-on] {
+  opacity: 1;
+}
+
+.prompt-bar__empty {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 8px;
+  color: var(--pb-muted);
+  font-size: 12px;
+}
+
+.prompt-bar__field {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: var(--pb-radius);
+  background: var(--pb-bg);
+  cursor: text;
+}
+
+.prompt-bar__field::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(
+    140% 120% at 0% 100%,
+    color-mix(in srgb, var(--pb-spark) 26%, transparent),
+    transparent 62%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 500ms ease;
+}
+
+.prompt-bar__field[data-max]::before {
+  opacity: 1;
+}
+
+.prompt-bar__sparks {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.prompt-bar__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.prompt-bar__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 26px;
+  padding: 0 4px 0 8px;
+  border-radius: 8px;
+  background: var(--pb-hover);
+  font-size: 12px;
+  animation: prompt-bar-pop 200ms var(--pb-ease-out) both;
+}
+
+.prompt-bar__chip-name {
+  max-width: 144px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.prompt-bar__chip-x {
+  display: inline-grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: inherit;
+  opacity: 0.6;
+  cursor: pointer;
+  outline: none;
+  transition:
+    opacity 120ms ease,
+    background-color 120ms ease;
+}
+
+.prompt-bar__chip-x:hover {
+  background: color-mix(in srgb, var(--pb-ink) 10%, transparent);
+  opacity: 1;
+}
+
+.prompt-bar__input {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 14px;
+  line-height: 22px;
+  resize: none;
+  outline: none;
+  overflow-wrap: anywhere;
+}
+
+.prompt-bar__input::placeholder {
+  color: color-mix(in srgb, var(--pb-ink) 45%, transparent);
+}
+
+@media (pointer: coarse) {
+  .prompt-bar__input {
+    font-size: 16px;
+  }
+}
+
+.prompt-bar__bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.prompt-bar__spacer {
+  flex: 1 1 auto;
+}
+
+.prompt-bar__tool,
+.prompt-bar__pick,
+.prompt-bar__send {
+  flex: none;
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.prompt-bar__tool {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: color-mix(in srgb, var(--pb-ink) 60%, transparent);
+  transition:
+    background-color 150ms ease,
+    color 150ms ease,
+    transform 160ms var(--pb-ease-out);
+}
+
+.prompt-bar__tool:active {
+  transform: scale(0.94);
+}
+
+.prompt-bar__pick {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 28px;
+  padding: 0 8px;
+  border-radius: 8px;
+  background: transparent;
+  color: color-mix(in srgb, var(--pb-ink) 70%, transparent);
+  font-size: 12px;
+  font-weight: 500;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+.prompt-bar__tool[data-on],
+.prompt-bar__pick[data-on] {
+  background: var(--pb-hover);
+  color: var(--pb-ink);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .prompt-bar__tool:hover,
+  .prompt-bar__pick:hover {
+    background: var(--pb-hover);
+    color: var(--pb-ink);
+  }
+}
+
+.prompt-bar__pick[data-max] {
+  color: var(--pb-spark);
+}
+
+.prompt-bar__menu[data-kind='effort'] {
+  right: auto;
+  width: 248px;
+  padding: 12px 14px 14px;
+  transform-origin: bottom left;
+}
+
+.prompt-bar__effort-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.prompt-bar__effort-title {
+  color: var(--pb-muted);
+}
+
+.prompt-bar__effort-level {
+  font-weight: 500;
+}
+
+.prompt-bar__effort-help {
+  display: inline-flex;
+  margin-left: auto;
+  color: var(--pb-muted);
+}
+
+.prompt-bar__effort-ends {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  color: var(--pb-muted);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.prompt-bar__effort-track {
+  position: relative;
+  height: 22px;
+  margin-top: 8px;
+  border-radius: 11px;
+  background: var(--pb-hover);
+  cursor: pointer;
+  outline: none;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.prompt-bar__effort-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--pb-effort-fill);
+  border-radius: 11px;
+  background: color-mix(in srgb, var(--pb-ink) 18%, transparent);
+  transition:
+    width 220ms var(--pb-ease-out),
+    background-color 300ms ease;
+}
+
+.prompt-bar__effort-dot {
+  position: absolute;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  margin: -2px 0 0 -2px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--pb-ink) 30%, transparent);
+}
+
+.prompt-bar__effort-thumb {
+  position: absolute;
+  top: -3px;
+  left: var(--pb-effort-x);
+  width: 14px;
+  height: 28px;
+  margin-left: -7px;
+  border-radius: 7px;
+  background: var(--pb-ink);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition:
+    left 220ms var(--pb-ease-out),
+    background-color 300ms ease;
+}
+
+.prompt-bar[data-max] .prompt-bar__effort-fill {
+  background: color-mix(in srgb, var(--pb-spark) 35%, transparent);
+}
+
+.prompt-bar[data-max] .prompt-bar__effort-thumb {
+  background: var(--pb-spark);
+}
+
+.prompt-bar__eq {
+  display: flex;
+  align-items: center;
+  gap: 2.5px;
+  height: 14px;
+}
+
+.prompt-bar__eq i {
+  display: block;
+  width: 2.5px;
+  height: 100%;
+  border-radius: 999px;
+  background: currentColor;
+  transform-origin: center;
+  animation: prompt-bar-eq 900ms ease-in-out infinite;
+}
+
+.prompt-bar__eq i:nth-child(2) {
+  animation-delay: 150ms;
+}
+
+.prompt-bar__eq i:nth-child(3) {
+  animation-delay: 300ms;
+}
+
+@keyframes prompt-bar-eq {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+  }
+
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.prompt-bar__send {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--pb-ink) 12%, var(--pb-bg));
+  color: color-mix(in srgb, var(--pb-ink) 55%, var(--pb-bg));
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    transform 160ms var(--pb-ease-out);
+}
+
+.prompt-bar__send:disabled {
+  cursor: default;
+}
+
+.prompt-bar__send[data-armed] {
+  background: var(--pb-ink);
+  color: var(--pb-bg);
+}
+
+.prompt-bar__send[data-pressed] {
+  transform: scale(var(--pb-press));
+}
+
+.prompt-bar__glyph {
+  display: block;
+  width: 16px;
+  height: 16px;
+  transform-origin: 50% 50%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prompt-bar__menu,
+  .prompt-bar__chip {
+    animation: none;
+  }
+
+  .prompt-bar__glow {
+    transition: opacity 150ms ease;
+  }
+
+  .prompt-bar__effort-fill,
+  .prompt-bar__effort-thumb {
+    transition: background-color 300ms ease;
+  }
+
+  .prompt-bar__tool:active,
+  .prompt-bar__send[data-pressed] {
+    transform: none;
+  }
+}
+
+/* V1: one calm, consistent studio. The pitch engine and theme variables stay intact. */
+html{height:auto;min-height:100%;overflow:auto}
+body{display:block;height:auto;min-height:100dvh;overflow:visible}
+header{height:76px;min-height:76px;padding:0 32px;border-color:var(--line)}
+.brand{font-size:28px}.home{font-size:13px}.powered{font-size:12px}
+main{display:grid;grid-template-columns:minmax(0,1fr) 390px;grid-template-rows:auto;gap:28px;height:auto;min-height:0;margin:0 auto;padding:28px 32px 32px;overflow:visible;align-items:start}
+.game-panel{display:flex;min-height:0;overflow:visible}
+.game-heading{display:flex;align-items:center;gap:20px;margin:0 0 22px}
+.game-heading h1{font-size:clamp(24px,2.7vw,38px);line-height:1.12;letter-spacing:-1.3px}
+.game-heading .eyebrow{display:block;font-size:11px;letter-spacing:1.6px;margin:0 0 10px}
+.game-toolbar{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.game-toolbar .text-button{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:12px;color:var(--text);min-height:42px;white-space:nowrap}
+.arena{flex:none;contain:none;min-height:0;aspect-ratio:1000/610;border-radius:20px;box-shadow:0 18px 50px #0002}
+#pitch{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.scoreboard{top:18px;left:18px;padding:12px 16px;gap:18px;border-radius:12px}
+.scoreboard strong{font-size:28px}.scoreboard .label{font-size:10px;letter-spacing:1px}
+.result{font-size:15px;bottom:34px;line-height:1.4}.round-dots{bottom:18px;gap:7px}.round-dots i{width:7px;height:7px}
+.controls{padding:20px 0 0}.control-row{gap:14px;margin:0 0 14px;flex-wrap:nowrap}
+.control-label{font-size:12px;min-width:38px;width:auto}.control-label b{color:var(--muted);font-weight:500}
+.shot-options{display:flex;gap:8px;height:auto;min-height:46px;overflow:auto;padding:3px 2px;scrollbar-width:thin}
+.shot-options button{padding:10px 16px;min-height:40px;font-size:13px;border-radius:10px;line-height:18px}
+.aim-options{gap:8px}.aim-options button{min-height:48px;padding:12px;font-size:13px;border-radius:10px}
+.shoot-button{min-height:48px;min-width:134px;padding:12px 20px;border-radius:10px;font-size:14px;gap:22px}
+.new-tag{font-size:9px}.change-feedback{position:static;max-height:none;margin-top:12px;left:auto;top:auto;right:auto;font-size:13px;padding:10px 14px}
+.chat-panel{position:sticky;top:20px;height:calc(100dvh - 124px);min-height:620px;max-height:940px;border-radius:20px;overflow:hidden}
+.chat-head{padding:20px;border-bottom:1px solid var(--line)}.chat-head h2{font-size:18px}.chat-head p{font-size:12px;line-height:1.4;margin-top:4px}
+.ai-mark{width:38px;height:38px;flex-shrink:0}.icon-button{min-width:40px;min-height:40px;border-radius:10px}
+.connection{min-height:40px;padding:10px 20px;font-size:11px;line-height:1.6}
+.history{min-height:120px;max-height:none;flex:1;padding:22px 20px;scroll-behavior:auto;overflow-y:auto}
+.message{font-size:13px;line-height:1.65;margin-bottom:22px}.message .who{font-size:10px;letter-spacing:1.1px;margin-bottom:7px}
+.message.user{margin-left:28px;padding:12px 14px;border-radius:14px 14px 3px 14px}.message.assistant{margin-right:0}
+.message .changes{font-size:12px}.message .time{font-size:11px;line-height:1.5;color:var(--muted)}
+.live-code{border:1px solid var(--line);border-radius:10px;background:var(--bg);margin-top:10px;overflow:hidden}
+.live-code summary{padding:10px 12px;cursor:pointer;color:var(--muted);font-size:11px;line-height:1.5;list-style-position:inside}
+.live-code pre{max-height:220px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;padding:0 12px 12px;margin:0;font:11px/1.65 ui-monospace,monospace;color:var(--text)}
+.composer{padding:16px 18px;border-top:1px solid var(--line)}
+.suggestion-head{height:auto;min-height:28px;font-size:10px;letter-spacing:1.2px}.suggestion-head .text-button{font-size:11px;padding:5px 0}
+.suggestions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0 12px;overflow:visible}
+.suggestions button{flex:none;width:auto;height:auto;min-height:50px;padding:10px 12px;overflow:visible;font-size:12px;line-height:1.45;border-radius:10px}
+.prompt-notice{font-size:11px;line-height:1.6;margin:10px 0;color:var(--muted)}
+.prompt-bar__field{padding:14px;gap:10px;border-radius:14px}
+#prompt.prompt-bar__input{font-size:14px;min-height:44px;line-height:22px}
+.prompt-bar__model{font-size:11px}#send.prompt-bar__send{width:38px;height:38px;border-radius:10px}
+#send.prompt-bar__send[data-armed]{background:var(--accent);color:var(--bg)}
+.reset-settings{min-height:36px;padding:8px 10px;font-size:11px;border-radius:8px;margin-top:10px}
+.generation-timing{top:18px;right:18px;max-width:48%;padding:10px 12px;border-radius:10px}.generation-timing strong{font-size:12px}.generation-timing span{font-size:10px;line-height:1.4}
+.round-summary{inset:12% 18%;padding:22px;gap:10px;border-radius:18px}.round-summary h2{font-size:20px}.round-summary>span{font-size:11px}.round-summary strong{font-size:44px}.round-summary p{font-size:13px}.round-summary button{min-height:44px;padding:12px 18px;font-size:13px}
+button{transition:background-color .16s,border-color .16s,transform .16s,opacity .16s}
+button:active:not(:disabled){transform:translateY(1px)}
+button:disabled{opacity:.45}.icon-button:hover:not(:disabled),.game-toolbar button:hover:not(:disabled){background:color-mix(in srgb,var(--text) 6%,transparent)}
+body[data-chat-side=left] main{grid-template-columns:390px minmax(0,1fr)}
+@media(min-width:1440px){main{padding-top:36px}}
+@media(max-width:1100px){main{padding:22px;gap:22px;grid-template-columns:minmax(0,1fr) 350px}header{padding:0 22px}.game-heading{align-items:flex-start;flex-direction:column;gap:14px}.game-heading h1{font-size:29px}.chat-panel{min-height:650px}.shot-options button{padding:9px 12px}.control-row{gap:9px}.shoot-button{min-width:100px;gap:12px}body[data-chat-side=left] main{grid-template-columns:350px minmax(0,1fr)}}
+@media(max-width:800px){
+ header{height:64px;min-height:64px;padding:0 20px}.brand{font-size:25px}.mark{width:29px;height:29px}.home{font-size:12px}.powered{display:none}
+ main,body[data-chat-side=left] main{display:flex;flex-direction:column;padding:24px 16px 32px;gap:24px;height:auto}
+ .game-panel,.chat-panel{width:100%;overflow:visible}.game-heading{flex-direction:row;align-items:center;gap:12px;margin-bottom:16px}.game-heading h1{font-size:25px;letter-spacing:-.7px}.game-heading .eyebrow{font-size:10px;margin-bottom:8px}.game-toolbar{gap:6px}.game-toolbar .text-button{font-size:11px;padding:8px;min-height:40px}
+ .arena{flex:none;min-height:0;aspect-ratio:1000/680;border-radius:16px}.scoreboard{top:12px;left:12px;padding:8px 11px;gap:12px}.scoreboard strong{font-size:23px}.scoreboard .label{font-size:9px}.result{font-size:12px;bottom:30px}.round-dots{bottom:15px}
+ .controls{padding-top:14px}.control-row{margin-bottom:10px;gap:9px}.shot-options{min-height:46px}.shot-options button{min-height:40px;font-size:12px}.aim-options button{min-height:46px;padding:10px 8px;font-size:12px}.shoot-button{min-height:46px;min-width:96px;font-size:13px;padding:12px;gap:12px}.control-label{min-width:30px;font-size:11px}
+ .chat-panel{position:static;height:auto;min-height:0;max-height:none;overflow:hidden}.chat-head{padding:18px}.connection{padding:10px 18px;font-size:12px;min-height:0}.history{flex:none;min-height:140px;max-height:350px;padding:20px 18px}.message{font-size:14px}.composer{padding:16px 18px 20px}.suggestions button{min-height:50px;font-size:13px}.prompt-notice{font-size:12px}.prompt-bar__field{padding:14px;gap:10px}#prompt.prompt-bar__input{font-size:16px;min-height:44px}#send.prompt-bar__send{width:42px;height:42px}.reset-settings{min-height:40px;font-size:12px}
+ .change-feedback{position:static;max-height:none;font-size:12px}.generation-timing{top:12px;right:12px;padding:8px;max-width:46%}.generation-timing strong{font-size:11px}.generation-timing span{font-size:9px}.round-summary{inset:6% 12%;gap:5px;padding:12px}.round-summary h2{font-size:17px}.round-summary strong{font-size:32px}.round-summary p{font-size:12px}.round-summary button{min-height:40px}
+}
+@media(max-width:420px){.game-heading{flex-wrap:wrap}.game-toolbar{width:100%;justify-content:flex-end}.game-heading h1{font-size:27px}.control-row.aim-row{flex-wrap:wrap}.aim-row .aim-options{flex:1}.aim-row .shoot-button{width:100%;margin-left:39px}.scoreboard .label{font-size:8px}}
+@media(prefers-reduced-motion:reduce){button,.prompt-bar__field{transition:none}button:active:not(:disabled){transform:none}}
+[hidden]{display:none!important}
+.arrow-icon{width:16px;height:16px;vertical-align:middle;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}.mark .arrow-icon{width:22px;height:22px}.home{display:flex;align-items:center;gap:6px}.aim-options button .arrow-icon{display:none}.icon-button{display:grid;place-items:center}.shoot-button span{display:flex;align-items:center}
+.session-note{font-size:12px;line-height:1.6;color:var(--muted);border:1px solid var(--line);border-radius:10px;padding:12px;margin:0 0 20px}
+@media(max-width:420px){.scoreboard .label{font-size:10px;letter-spacing:.5px}.scoreboard{gap:10px;padding:8px 10px}}
+/* Preserve the original React Bits PromptBar, not a restyled green substitute. */
+body:not([data-custom-ui=true]):not([data-theme=light]):not([data-theme=neon]){--bg:#111113;--panel:#1c1c20;--line:#34343a;--text:#f5f5f5;--muted:#a1a1aa;--accent:#c4b5fd}
+.chat-panel{background:var(--panel);border-color:var(--line);box-shadow:none}.ai-mark{background:#2c2838;color:var(--accent)}
+.shot-options button,.aim-options button,.suggestions button{background:#27272a;border-color:transparent;color:#d4d4d8;border-radius:14px}
+.shot-options button[aria-pressed=true],.aim-options button[aria-pressed=true]{background:#3b344d;border-color:#817098;color:#f5efff}
+.suggestions button:hover:not(:disabled){background:#323236;border-color:transparent;color:#fff}.shoot-button{border-radius:14px;background:#e4dcfa;color:#221d30}
+.message.user{background:#27272a;border-color:#34343a}.message .changes{color:var(--accent)}
+#chat-form.prompt-bar{--pb-bg:#27272a;--pb-ink:#f5f5f5;--pb-w:400px;--pb-spark:#b39dff;font-size:14px;line-height:22px}
+#chat-form .prompt-bar__field{border:0;background:var(--pb-bg);border-radius:16px;padding:12px;gap:8px;box-shadow:none}
+#chat-form .prompt-bar__field:focus-within{border:0;box-shadow:0 0 0 1px #ffffff15}
+#prompt.prompt-bar__input{font:inherit;color:var(--pb-ink);background:transparent;min-height:22px;max-height:88px;padding:0;border:0;outline:none;line-height:22px}
+#prompt.prompt-bar__input::placeholder{color:color-mix(in srgb,var(--pb-ink) 45%,transparent)}
+#send.prompt-bar__send{width:28px;height:28px;border-radius:8px;background:color-mix(in srgb,var(--pb-ink) 12%,var(--pb-bg));color:color-mix(in srgb,var(--pb-ink) 55%,var(--pb-bg));position:relative;inset:auto}
+#send.prompt-bar__send[data-armed]{background:var(--pb-ink);color:var(--pb-bg)}
+#chat-form .prompt-bar__tool,#chat-form .prompt-bar__pick{min-height:28px;border:0;border-radius:6px}
+#chat-form .prompt-bar__menu{z-index:6}.composer{overflow:visible}.chat-panel{overflow:visible}.history{border-bottom:0}.voice-notice{font-size:10px;line-height:1.5;color:var(--muted);margin:9px 0 0}.voice-error{font-size:12px;line-height:1.5;color:#f9b8b8}
+@media(pointer:coarse){#prompt.prompt-bar__input{font-size:16px}#chat-form .prompt-bar__tool,#chat-form .prompt-bar__pick,#send.prompt-bar__send{min-height:40px}#send.prompt-bar__send{width:40px;height:40px}.voice-notice{font-size:11px}}
+/* Proposed control system. Review candidate only, not a new production choice. */
+.game-heading h1{font-weight:500;letter-spacing:-1.4px}.eyebrow{color:var(--muted)}
+.scoreboard{border:1px solid #ffffff20;border-radius:16px;background:#1c1c20e8;backdrop-filter:blur(14px);padding:14px 18px;gap:20px;box-shadow:0 8px 25px #0002}
+.scoreboard>div{gap:5px;min-width:54px}.scoreboard>div.divider{min-width:1px}.scoreboard .label{font-size:10px;letter-spacing:1.3px;color:#b0adb9}.scoreboard strong{font-size:32px;font-weight:500;line-height:1;font-variant-numeric:tabular-nums;color:#fff}
+.controls{margin-top:18px;padding:18px 20px 20px;border:1px solid #ffffff0b;border-radius:20px;background:#1c1c20}
+.control-row{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:18px}.control-row:last-child{margin-bottom:0}.control-label{font-size:11px;letter-spacing:.9px;text-transform:uppercase}.control-label b{font-weight:500;color:#a1a1aa}
+.shot-options{gap:8px;padding:0;min-height:0}.shot-options button{min-height:40px;border-radius:12px;background:#27272a;color:#a1a1aa;padding:9px 18px;font-size:13px;border:1px solid transparent}.shot-options button[aria-pressed=true]{background:#3a314c;color:#eee8fb;border-color:#b39dff66;box-shadow:inset 0 1px 0 #ffffff12}
+.aim-row{grid-template-columns:minmax(0,1fr) 152px}.aim-row .control-label{grid-column:1/-1}.aim-options{gap:8px}
+.aim-options button{display:flex;align-items:center;justify-content:center;gap:10px;min-height:60px;padding:10px 14px;background:#27272a;border:1px solid transparent;border-radius:14px;color:#a1a1aa;font-size:13px;transition:background .18s,box-shadow .18s,transform .18s}
+.aim-options button[aria-pressed=true]{background:#3a314c;color:#eee8fb;border-color:#b39dff66;box-shadow:inset 0 1px 0 #ffffff12}
+.aim-mini{display:block;position:relative;width:26px;height:19px;border:1.5px solid currentColor;border-bottom:0;border-radius:3px 3px 0 0;opacity:.7}.aim-mini:after{content:'';position:absolute;width:5px;height:5px;border-radius:50%;background:currentColor;top:5px}.aim-left:after{left:3px}.aim-centre:after{left:9px}.aim-right:after{right:3px}
+.aim-options button[aria-pressed=true] .aim-mini{opacity:1}.shoot-button{min-height:60px;padding:15px 18px;border-radius:14px;font-size:15px;box-shadow:inset 0 1px 0 #ffffff4d;background:#d7cafa;color:#211b2d}.shoot-button:hover:not(:disabled){background:#e5dcff;box-shadow:0 0 24px #b39dff25}.shoot-button span{background:#211b2d12;border-radius:50%;padding:5px}
+.result{bottom:40px;left:50%;width:max-content;max-width:90%;transform:translateX(-50%);background:#1c1c20d9;border:1px solid #ffffff10;padding:8px 14px;border-radius:100px;font-size:13px;line-height:1.4;text-shadow:none;backdrop-filter:blur(8px)}
+.round-dots{bottom:20px}.round-dots i{width:6px;height:6px}.round-dots .goal{background:#d7cafa}.round-dots .save,.round-dots .miss{background:#d3a88f}
+.suggestions button{position:relative;padding:12px 14px;border-radius:12px;line-height:1.5;background:#27272a;color:#c5c5cc;transition:background .2s,transform .2s}.suggestions button:hover:not(:disabled){background:#323236;transform:translateY(-1px)}
+.chat-head{border-bottom:0;padding-bottom:12px}.connection{border-bottom:1px solid var(--line);padding-top:0;padding-bottom:14px}.ai-mark{background:#332b43;border-radius:12px}.chat-head h2{font-size:19px;font-weight:500}
+@media(max-width:1100px){.aim-row{grid-template-columns:minmax(0,1fr) 112px}.aim-options button{flex-direction:column;gap:5px;padding:8px}.shoot-button{min-width:100px;padding:12px}}
+@media(max-width:800px){.controls{margin-top:14px;padding:16px;border-radius:18px}.control-row{gap:10px;margin-bottom:16px}.aim-row{display:grid;grid-template-columns:minmax(0,1fr) 100px}.aim-row .shoot-button{width:auto;margin:0;min-height:62px}.aim-options button{min-height:62px;gap:7px}.aim-mini{width:23px;height:17px}.aim-centre:after{left:8px}.scoreboard{padding:10px 12px;top:12px;left:12px;gap:12px}.scoreboard .label{font-size:9px;letter-spacing:.7px}.scoreboard strong{font-size:26px}.result{font-size:11px;padding:6px 10px;bottom:30px}.round-dots{bottom:15px}}
+@media(prefers-reduced-motion:reduce){.suggestions button,.aim-options button{transition:none}.suggestions button:hover:not(:disabled){transform:none}}
+
+/* The selected React Bits control owns its button geometry and selected thumb. */
+#shots .rubber-segment__item{background:transparent;border:0;border-radius:0;min-height:0;padding:0 var(--rs-pad);font-size:var(--rs-font);color:var(--rs-ink);transform:none}
+#shots .rubber-segment__item:active{transform:none}
+#shots .rubber-segment__thumb{color:var(--rs-ink-active)}
+.game-toolbar .text-button{background:#27272a;border:1px solid #3f3f46;border-radius:14px;min-height:44px}
+.game-toolbar .text-button[aria-pressed=true]{color:#ddd6fe;border-color:#817098}
+.suggestions button:hover:not(:disabled){transform:translateY(-2px)}
+.score-ticker{display:inline-block;font-variant-numeric:tabular-nums}
+@media(prefers-reduced-motion:reduce){.suggestions button:hover:not(:disabled){transform:none}}
+#shots .rubber-segment__copy{color:var(--rs-ink-active)}
+
+/* One compact control dock; alternative input methods share the same space. */
+.controls{position:relative;padding:12px 16px 14px}
+.controls .shot-row{position:absolute;top:12px;left:16px;max-width:calc(100% - 180px);margin:0;z-index:3;display:block}
+.controls .shot-row[hidden]{display:none}
+.shot-row .control-label{display:none}
+.shot-row #shots{overflow-x:auto;max-width:100%;min-height:44px}
+.input-mode{display:flex;justify-content:flex-end;gap:2px;height:44px;align-items:center}
+.input-mode button{font:inherit;font-size:12px;min-height:44px;padding:0 12px;border:1px solid transparent;border-radius:10px;background:transparent;color:#a1a1aa;cursor:pointer}
+.input-mode button[aria-pressed=true]{background:#303034;color:#fafafa;border-color:#ffffff18}
+.input-mode button:focus-visible{outline:2px solid white;outline-offset:2px}
+.input-mode button:disabled{opacity:.5;cursor:default}
+.sling-dock{display:block;padding:0;margin:0;border:0}
+.sling-stage{display:grid;place-items:center;height:96px;position:relative;isolation:isolate;z-index:2}
+.sling-help{display:flex;justify-content:center;gap:10px;align-items:center;min-height:22px;font-size:11px;color:#a1a1aa;pointer-events:none;text-align:center}
+.sling-help strong{font-size:12px;color:#f4f4f5;font-weight:500}
+.sling-dock .sling-button__pad{transform:none}.sling-dock .sling-button__pad[aria-disabled=true]{opacity:.45}
+.controls[data-input-mode=sling] .aim-row{display:none}
+.controls[data-input-mode=buttons] .aim-row{margin:12px 0 0;grid-template-columns:minmax(0,1fr) 96px;gap:8px}
+.controls .aim-row .control-label{display:none}
+.controls .aim-options{gap:6px}
+.controls .aim-options button{flex-direction:row;min-height:52px;padding:8px;gap:6px}
+.controls .aim-options button[aria-pressed=true]{background:#f5f5f5;color:#18181b;border-color:#fff;box-shadow:none}
+.controls .shoot-button{min-height:52px;min-width:0;width:auto;margin:0;padding:10px 14px;background:#f5f5f5;color:#18181b;box-shadow:none}
+.controls .shoot-button:hover:not(:disabled){background:#fff;box-shadow:none}
+@media(max-width:640px){.controls{padding:10px 12px 12px;margin-top:10px}.controls .shot-row{top:10px;left:12px;max-width:calc(100% - 168px)}.sling-stage{height:96px}.sling-help{gap:6px;font-size:10px}.sling-help strong{font-size:11px}.controls .aim-mini{display:none}.controls .aim-options button{font-size:11px;padding:6px}.controls[data-input-mode=buttons] .aim-row{grid-template-columns:minmax(0,1fr) 80px}}
+
+.prompt-bar__row:disabled{opacity:.42;cursor:not-allowed}
+
+.rubber-segment {
+  --rs-track: #27272a;
+  --rs-thumb: #fafafa;
+  --rs-ink: #fafafa;
+  --rs-ink-active: #18181b;
+  --rs-radius: 10px;
+  --rs-inset: 3px;
+  --rs-thumb-radius: 7px;
+  --rs-h: 36px;
+  --rs-font: 13px;
+  --rs-pad: 14px;
+  --rs-min: 44px;
+  --rs-idle: 0.7;
+  --rs-hover: 0.9;
+  --rs-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+
+  position: relative;
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-auto-columns: auto;
+  vertical-align: middle;
+  padding: var(--rs-inset);
+  border-radius: var(--rs-radius);
+  background: var(--rs-track);
+  font-family: inherit;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.rubber-segment[data-equal] {
+  grid-auto-columns: minmax(0, 1fr);
+}
+
+.rubber-segment[aria-disabled='true'] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.rubber-segment__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: calc(var(--rs-h) - var(--rs-inset) * 2);
+  min-width: var(--rs-min);
+  margin: 0;
+  padding: 0 var(--rs-pad);
+  border: 0;
+  border-radius: var(--rs-thumb-radius);
+  background: none;
+  color: var(--rs-ink);
+  opacity: var(--rs-idle);
+  font: inherit;
+  font-size: var(--rs-font);
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  transition:
+    opacity 160ms ease,
+    transform 160ms var(--rs-ease-out);
+}
+
+.rubber-segment__item[aria-checked='true'] {
+  cursor: default;
+}
+
+.rubber-segment[data-draggable] .rubber-segment__item[aria-checked='true'] {
+  cursor: grab;
+}
+
+.rubber-segment[data-held],
+.rubber-segment[data-held] .rubber-segment__item {
+  cursor: grabbing;
+}
+
+.rubber-segment__item[data-pressed] {
+  transform: scale(0.96);
+}
+
+.rubber-segment__item:focus-visible {
+  outline: 2px solid var(--rs-thumb);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .rubber-segment__item[aria-checked='false']:hover {
+    opacity: var(--rs-hover);
+  }
+}
+
+.rubber-segment__thumb {
+  position: absolute;
+  inset: var(--rs-inset);
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: auto;
+  background: var(--rs-thumb);
+  color: var(--rs-ink-active);
+  pointer-events: none;
+}
+
+.rubber-segment[data-equal] .rubber-segment__thumb {
+  grid-auto-columns: minmax(0, 1fr);
+}
+
+.rubber-segment__copy {
+  color: inherit;
+  opacity: 1;
+  cursor: default;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rubber-segment__item {
+    transition: opacity 160ms ease;
+  }
+}
+
+.sling-button {
+  --sl-size: 56px;
+  --sl-svg: 90px;
+  --sl-pad: #f5f5f5;
+  --sl-icon: #18181b;
+  --sl-accent: #f5f5f5;
+  --sl-well: #27272a;
+  --sl-band: #52525b;
+  --sl-stroke: 3px;
+  --sl-dot: 8px;
+  --sl-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+
+  position: relative;
+  display: inline-block;
+  width: var(--sl-size);
+  height: var(--sl-size);
+}
+
+.sling-button__fx {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--sl-svg);
+  height: var(--sl-svg);
+  margin: calc(var(--sl-svg) / -2) 0 0 calc(var(--sl-svg) / -2);
+  overflow: visible;
+  pointer-events: none;
+  shape-rendering: geometricPrecision;
+}
+
+.sling-button__well {
+  fill: var(--sl-well);
+  transition: fill 200ms ease;
+}
+
+.sling-button[data-sent] .sling-button__well {
+  fill: var(--sl-accent);
+}
+
+.sling-button__band {
+  fill: none;
+  stroke: var(--sl-band);
+  stroke-width: var(--sl-stroke);
+  stroke-linecap: round;
+  transition: stroke-width 160ms var(--sl-ease-out);
+}
+
+.sling-button[data-armed] .sling-button__band {
+  stroke-width: calc(var(--sl-stroke) * 1.5);
+}
+
+.sling-button__band--hot {
+  stroke: var(--sl-accent);
+}
+
+.sling-button__arc {
+  fill: none;
+  stroke: var(--sl-accent);
+  stroke-width: var(--sl-stroke);
+  stroke-linecap: butt;
+  transition: stroke-width 160ms var(--sl-ease-out);
+}
+
+.sling-button[data-armed] .sling-button__arc {
+  stroke-width: calc(var(--sl-stroke) * 1.5);
+}
+
+.sling-button__move {
+  position: absolute;
+  inset: 0;
+}
+
+.sling-button__pad {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  cursor: grab;
+  outline: none;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sling-button__pad::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+}
+
+.sling-button__pad[data-held] {
+  cursor: grabbing;
+}
+
+.sling-button__pad[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.sling-button__face {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--sl-pad);
+  color: var(--sl-icon);
+  transition: transform 160ms var(--sl-ease-out);
+}
+
+.sling-button__pad[data-held] .sling-button__face {
+  transform: scale(0.97);
+}
+
+.sling-button__pad[data-armed] .sling-button__face {
+  transform: scale(1.04);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .sling-button__pad:not([data-held]):not([aria-disabled='true']):hover .sling-button__face {
+    transform: scale(1.02);
+  }
+}
+
+.sling-button__icon {
+  display: inline-flex;
+  will-change: transform;
+}
+
+.sling-button__dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--sl-dot);
+  height: var(--sl-dot);
+  margin: calc(var(--sl-dot) / -2) 0 0 calc(var(--sl-dot) / -2);
+  border-radius: 50%;
+  background: var(--sl-accent);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sling-button__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sling-button__face {
+    transform: none !important;
+    transition: none;
+  }
+}
+
+@media(max-width:800px){.result{bottom:8px}.round-dots{display:none}}
+
+/* Isolated V3 HUD: no overlay can hide generated sky. */.arena-hud{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 12px;min-height:76px}.arena-hud .scoreboard{position:static!important;transform:none!important;margin:0!important;background:#1d1f24!important;border:1px solid #34363e}.arena-hud .generation-timing{position:static!important;transform:none!important;order:2;max-width:48%;margin:0!important}.arena-hud .generation-timing[hidden]{display:none!important}@media(max-width:600px){.arena-hud{gap:8px;flex-wrap:wrap}.arena-hud .generation-timing{max-width:100%}}
+/* V3 status is outside the artwork on every viewport. */.game-panel>.result{position:static!important;inset:auto!important;transform:none!important;display:block!important;width:fit-content!important;max-width:100%!important;margin:12px auto!important;padding:8px 14px!important;text-align:center;pointer-events:none;min-height:32px}.game-panel>.result:empty{display:none!important}
+/* Studio v3: existing React controls, one game frame, prompt above work. */
+html:has(body[data-layout="studio-v3"]){height:auto;overflow:auto}
+body[data-layout="studio-v3"]{--studio-gap:16px;height:auto;min-height:100dvh;display:block;overflow:visible}
+body[data-layout="studio-v3"] header{height:64px;min-height:64px;padding:0 28px;max-width:none}
+body[data-layout="studio-v3"] main{display:grid;align-items:stretch;grid-template-rows:minmax(0,1fr);max-width:1800px;margin:0 auto;padding:0 24px 20px;gap:20px;height:calc(100dvh - 64px);min-height:580px;grid-template-columns:minmax(0,1fr) 360px}
+body[data-layout="studio-v3"] .game-panel{height:100%;align-self:stretch;min-width:0;min-height:0;display:flex;flex-direction:column}
+body[data-layout="studio-v3"] .game-heading{margin:0;height:48px;min-height:48px}
+body[data-layout="studio-v3"] .game-heading .eyebrow{display:none}
+body[data-layout="studio-v3"] h1{font-size:16px;letter-spacing:-.3px;margin:0;color:#b8b8c0}
+.play-frame{position:relative;flex:1;min-height:0;background:#141518;border:1px solid #303138;border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+body[data-layout="studio-v3"] .arena{border:0;border-radius:0;aspect-ratio:auto;flex:1;min-height:0;background:#18231d}
+body[data-layout="studio-v3"] #pitch{width:100%;height:100%;object-fit:contain}
+body[data-layout="studio-v3"] .arena-hud{position:absolute;top:14px;left:14px;margin:0;min-height:0;z-index:3;pointer-events:none;display:block}
+body[data-layout="studio-v3"] .arena-hud .scoreboard{position:relative!important;padding:10px 14px 28px!important;gap:14px!important;background:#111418df!important;min-width:180px;backdrop-filter:blur(12px)}
+body[data-layout="studio-v3"] .scoreboard strong{font-size:22px}
+body[data-layout="studio-v3"] .round-dots{display:flex!important;flex-direction:row;position:absolute;left:14px;bottom:10px;top:auto;width:auto;gap:7px;justify-content:flex-start}
+body[data-layout="studio-v3"] .round-dots i{width:7px;height:7px}
+body[data-layout="studio-v3"] .game-toolbar{position:absolute;top:14px;right:14px;z-index:4;display:flex;gap:8px}
+body[data-layout="studio-v3"] .game-toolbar button{background:#111418df;border:1px solid #ffffff20;border-radius:10px;padding:10px 12px;color:#eee;min-height:40px}
+body[data-layout="studio-v3"] .arena-hud .generation-timing{margin-top:6px;max-width:250px;padding:6px 9px;font-size:10px}
+body[data-layout="studio-v3"] .controls{position:relative;margin:0;padding:12px 16px 8px;background:#17181c;border-top:1px solid #ffffff13;min-height:156px;flex:none}
+body[data-layout="studio-v3"] .controls .shot-row{top:12px;left:16px;max-width:calc(100% - 160px)}
+body[data-layout="studio-v3"] .sling-stage{height:78px}
+body[data-layout="studio-v3"] .sling-help{margin:0;min-height:28px}
+body[data-layout="studio-v3"] .sling-help span{font-size:10px}
+body[data-layout="studio-v3"] .result{position:absolute!important;bottom:166px!important;left:50%!important;transform:translateX(-50%)!important;top:auto!important;width:max-content!important;max-width:80%;margin:0!important;padding:6px 12px!important;background:#111418c9;font-size:12px!important;z-index:2;border-radius:20px;pointer-events:none}
+body[data-layout="studio-v3"] .change-feedback{position:absolute;bottom:200px;left:16px;right:16px;z-index:5}
+body[data-layout="studio-v3"] .chat-panel{min-height:0;max-height:none;height:100%;border-radius:18px;align-self:stretch}
+body[data-layout="studio-v3"] .chat-head{padding:16px;min-height:62px}
+body[data-layout="studio-v3"] .connection{padding:8px 16px;flex:none}
+body[data-layout="studio-v3"] .composer{flex:none;padding:14px;border-top:0;border-bottom:1px solid #ffffff12;overflow:visible}
+body[data-layout="studio-v3"] #composer-react{margin:0 0 14px}
+body[data-layout="studio-v3"] #history{flex:1;min-height:0;max-height:none;overflow:auto;padding:16px}
+body[data-layout="studio-v3"] .suggestions{margin-bottom:8px}
+body[data-layout="studio-v3"] .prompt-bar__menu{bottom:auto;top:calc(100% + 8px);z-index:50}
+.chat-toggle{display:none}
+@media(max-width:1000px){body[data-layout="studio-v3"] main{grid-template-columns:minmax(0,1fr) 310px;padding:0 12px 12px;gap:12px}body[data-layout="studio-v3"] header{padding:0 16px}.game-toolbar button{font-size:10px}}
+@media(max-width:800px){body[data-layout="studio-v3"] header{height:56px;min-height:56px;padding:0 14px}body[data-layout="studio-v3"] main{display:flex;flex-direction:column;height:auto;min-height:0;padding:0 10px 16px;gap:12px}body[data-layout="studio-v3"] .game-panel{height:calc(100dvh - 72px);min-height:550px;flex:none}body[data-layout="studio-v3"] .game-heading{height:34px;min-height:34px}body[data-layout="studio-v3"] h1{font-size:13px}.play-frame{border-radius:14px}body[data-layout="studio-v3"] .arena-hud{top:8px;left:8px}body[data-layout="studio-v3"] .arena-hud .scoreboard{transform:scale(.85)!important;transform-origin:top left}body[data-layout="studio-v3"] .game-toolbar{top:8px;right:8px;gap:4px}body[data-layout="studio-v3"] .game-toolbar button{padding:8px;font-size:10px;min-height:36px}body[data-layout="studio-v3"] .controls{padding:10px;min-height:156px}body[data-layout="studio-v3"] .controls .shot-row{top:10px;left:10px;max-width:calc(100% - 135px)}body[data-layout="studio-v3"] .input-mode button{padding:7px 8px;font-size:10px}body[data-layout="studio-v3"] .chat-panel{display:none;height:650px;max-height:85dvh;flex:none}body[data-layout="studio-v3"] .chat-panel.is-open{display:flex}.chat-toggle{display:block;flex:none;margin-top:8px;border:1px solid #ffffff30;background:#f3f3f3;color:#18181b;border-radius:12px;min-height:44px;font-weight:600}body[data-layout="studio-v3"] .powered{font-size:9px}body[data-layout="studio-v3"] .home{font-size:10px}}
+
+/* Studio v4: clearer control and generation hierarchy */
+body[data-layout="studio-v3"] .game-toolbar #sound-toggle{width:40px;padding:6px;font-size:22px;line-height:1}
+body[data-layout="studio-v3"] .game-toolbar #reset-settings{margin:0;font-size:11px;font-weight:400;white-space:nowrap}
+body[data-layout="studio-v3"] .prompt-composer-shell{position:relative;margin-bottom:14px;border:1px solid #ffffff16;border-radius:17px;background:#27272a;overflow:visible}
+body[data-layout="studio-v3"] .prompt-composer-shell #composer-react{margin:0}
+body[data-layout="studio-v3"] .prompt-composer-shell #undo-code{display:block;margin:0 10px 8px auto;padding:5px 9px;border:1px solid #ffffff20;border-radius:7px;color:#ddd;font-size:11px;background:#ffffff08}
+body[data-layout="studio-v3"] .prompt-composer-shell #undo-code[hidden]{display:none}
+body[data-layout="studio-v3"] .live-code[open] pre{max-height:260px;overflow:auto;font-size:10px;line-height:1.5}
+body[data-layout="studio-v3"] .live-code summary{font-size:9px;letter-spacing:.4px}
+body[data-layout="studio-v3"] .message .who{font-size:9px;color:#999}
+body[data-layout="studio-v3"] .suggestion-head{font-size:9px;min-height:22px}
+body[data-layout="studio-v3"] .suggestions button{min-height:34px;height:auto;font-size:11px}
+@media(max-width:800px){body[data-layout="studio-v3"] .game-toolbar{top:94px;left:8px;right:8px;width:auto;max-width:calc(100% - 16px);justify-content:flex-end}body[data-layout="studio-v3"] .game-toolbar button{min-height:34px}body[data-layout="studio-v3"] .game-toolbar #reset-settings{font-size:10px}body[data-layout="studio-v3"] .game-toolbar #sound-toggle{width:34px}}
+
+body[data-layout="studio-v3"] .connection-row{display:flex;align-items:center;gap:8px;padding:8px 12px;flex:none;border-bottom:1px solid #ffffff0c}
+body[data-layout="studio-v3"] .connection-row .connection{padding:0;min-height:0;flex:1;min-width:0;font-size:10px;line-height:1.5;color:#a1a1aa;display:flex;align-items:center;gap:6px}
+body[data-layout="studio-v3"] .connection::before{content:'';display:block;width:6px;height:6px;flex:none;border-radius:50%;background:#71717a}
+body[data-layout="studio-v3"] .connection[data-state=connected]::before{background:#4ade80}
+body[data-layout="studio-v3"] .connection-row #reset-settings{margin:0;padding:7px 8px;white-space:nowrap;font-size:10px;line-height:1.3;border:1px solid #ffffff20;border-radius:8px;background:#ffffff06;color:#d4d4d8}
+/* V5: persistent history heading; complete default shot selection */
+body[data-layout="studio-v3"] .studio-history-head{flex:none;padding:13px 16px 9px;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#d6d6dc;border-bottom:1px solid #ffffff0c;background:var(--panel)}
+body[data-layout="studio-v3"] #history{overflow-y:auto;overscroll-behavior:contain;min-height:0;flex:1}
+body[data-layout="studio-v3"] .message.assistant .who{display:none}
+@media(max-width:800px){body[data-layout="studio-v3"] .game-toolbar{top:8px;left:auto;right:8px;width:auto;max-width:calc(100% - 16px)}body[data-layout="studio-v3"] .controls{min-height:210px}body[data-layout="studio-v3"] .controls .shot-row{top:10px;left:10px;right:10px;max-width:none}body[data-layout="studio-v3"] #shots .rubber-segment__item{padding:0 8px;font-size:10px}body[data-layout="studio-v3"] .input-mode{margin-top:44px;height:32px}body[data-layout="studio-v3"] .input-mode button{min-height:32px}body[data-layout="studio-v3"] .sling-stage{height:62px}body[data-layout="studio-v3"] .result{bottom:220px!important}}
+
+/* Isolated monochrome concept, not the production UI */
+body[data-layout="studio-v3"]{--bg:#0c0c0e;--panel:#171719;--line:#303034;--accent:#f5f5f5;background:radial-gradient(ellipse at 35% 10%,#25252a 0,transparent 60%),#0c0c0e}
+body[data-layout="studio-v3"] .play-frame,body[data-layout="studio-v3"] .chat-panel{border:1px solid #ffffff22;box-shadow:0 0 0 1px #ffffff03,0 0 30px #ffffff06,0 14px 40px #0005}
+body[data-layout="studio-v3"] .studio-history-head{display:flex;justify-content:space-between;font-weight:600;color:#eee}
+body[data-layout="studio-v3"] .studio-history-head span{font-size:9px;text-transform:none;letter-spacing:0;font-weight:400;color:#777}
+body[data-layout="studio-v3"] .message.assistant{margin-bottom:12px;padding:12px 13px;border:1px solid #ffffff0e;border-radius:11px;background:#ffffff03;font-size:12px;font-weight:500}
+body[data-layout="studio-v3"] .message .time{color:#6b6b75;font-size:9px;margin-top:6px}
+body[data-layout="studio-v3"] .live-code{margin-top:8px;background:transparent;border:0;border-top:1px solid #ffffff0b;border-radius:0}
+body[data-layout="studio-v3"] .live-code summary{font-size:0;padding:8px 0 0;color:#8d8d98}
+body[data-layout="studio-v3"] .live-code summary::after{content:'Code';font-size:10px;letter-spacing:0;font-weight:400}
+body[data-layout="studio-v3"] .live-code[open] summary::after{content:'Hide code'}
+body[data-layout="studio-v3"] .live-code pre{margin-top:8px;border:1px solid #ffffff0d;border-radius:7px;background:#111113;padding:10px}
+body[data-layout="studio-v3"] .powered{font-size:9px;letter-spacing:1px}
+body[data-layout="studio-v3"] .game-toolbar .text-button[aria-pressed=true]{border-color:#ffffff28;color:#eee}
+body[data-layout="studio-v3"] .connection[data-state=preview]::before{background:#a1a1aa}
+
+/* Broadcast reference correction: existing game, HUD and controls in one frame. */
+body[data-concept=broadcast] header{height:30px;min-height:30px;max-width:1280px;margin:auto;padding:0 24px;justify-content:flex-end;border-bottom:0}
+body[data-concept=broadcast] header .brand,body[data-concept=broadcast] header .home{display:none}
+body[data-concept=broadcast] main{display:block!important;max-width:1280px;height:auto!important;min-height:0;margin:auto;padding:0 22px 40px!important}
+body[data-concept=broadcast] .game-panel{height:auto!important;min-height:0!important;display:block}
+body[data-concept=broadcast] .game-heading,body[data-concept=broadcast] .chat-toggle{display:none!important}
+body[data-concept=broadcast] .play-frame{display:block;overflow:hidden;border-radius:18px;border:1px solid #ffffff30;box-shadow:0 0 0 1px #ffffff05,0 0 24px #ffffff15,0 18px 48px #0009}
+body[data-concept=broadcast] .broadcast-bar{height:62px;display:flex;align-items:center;gap:18px;padding:0 20px;background:linear-gradient(#25272b,#191b1e);position:relative;z-index:5}
+body[data-concept=broadcast] .broadcast-title{font-size:22px;letter-spacing:.3px;padding-right:18px;border-right:1px solid #ffffff35}
+body[data-concept=broadcast] .arena-hud{position:static;display:flex;align-items:center;flex:1;pointer-events:auto}
+body[data-concept=broadcast] .arena-hud .scoreboard{position:static!important;transform:none!important;min-width:0;padding:0!important;border:0!important;background:transparent!important;backdrop-filter:none;display:flex;align-items:center;gap:14px!important}
+body[data-concept=broadcast] .scoreboard>div{flex-direction:row;align-items:baseline;gap:8px}
+body[data-concept=broadcast] .scoreboard .label{font-size:10px;white-space:nowrap;letter-spacing:.3px;color:#c7c8cc}
+body[data-concept=broadcast] .scoreboard strong{font-size:20px;color:white}
+body[data-concept=broadcast] .scoreboard .divider{height:24px}
+body[data-concept=broadcast] .round-dots{position:static;display:flex!important;counter-reset:shot;gap:6px;margin-left:8px}
+body[data-concept=broadcast] .round-dots i{counter-increment:shot;width:23px;height:23px;display:grid;place-items:center;background:#55565a;color:white;font:600 11px system-ui;border:1px solid #ffffff12}
+body[data-concept=broadcast] .round-dots i:before{content:counter(shot)}
+body[data-concept=broadcast] .round-dots i.goal{background:#2a8c35}body[data-concept=broadcast] .round-dots i.goal:before{content:'✓'}
+body[data-concept=broadcast] .round-dots i.miss,body[data-concept=broadcast] .round-dots i.save{background:#633c3c}body[data-concept=broadcast] .round-dots i.miss:before,body[data-concept=broadcast] .round-dots i.save:before{content:'×'}
+body[data-concept=broadcast] .game-toolbar{position:static;display:flex;align-items:center;gap:8px;width:auto;max-width:none;flex:none}
+body[data-concept=broadcast] .game-toolbar button{background:transparent;border:0;border-radius:8px;padding:8px;min-height:38px;font-size:12px;color:#eee}
+body[data-concept=broadcast] .game-toolbar .fullscreen-button{font-size:24px}
+body[data-concept=broadcast] .arena{width:100%;aspect-ratio:1000/610;min-height:0;position:relative;overflow:hidden;border-radius:0;box-shadow:none}
+body[data-concept=broadcast] #pitch{position:absolute;inset:0;width:100%;height:100%;object-fit:fill}
+body[data-concept=broadcast] .controls{position:absolute;inset:auto 0 0;height:108px;min-height:0;padding:0;border:0;background:linear-gradient(transparent,#0e1b1790);z-index:3}
+body[data-concept=broadcast] .controls .shot-row{position:absolute;top:auto;bottom:15px;left:18px;right:auto;max-width:46%;margin:0}
+body[data-concept=broadcast] .controls #shots{min-height:42px}
+body[data-concept=broadcast] .controls #sling-react{position:absolute;right:18px;bottom:63px;left:auto;width:auto;transform:none}
+body[data-concept=broadcast] .input-mode{margin:0;height:28px;gap:3px}
+body[data-concept=broadcast] .input-mode button{padding:4px 9px;min-height:28px;background:#17191cc9;border:1px solid #ffffff20;font-size:10px}
+body[data-concept=broadcast] .controls .aim-row{position:absolute;bottom:15px;right:18px;left:auto;top:auto;width:47%;margin:0;grid-template-columns:minmax(0,1fr) 100px;gap:8px}
+body[data-concept=broadcast] .aim-row .control-label{display:none}
+body[data-concept=broadcast] .aim-options button{background:#17191cce;border:1px solid #ffffff55;border-radius:12px;font-size:11px;padding:10px 6px;color:#ddd}
+body[data-concept=broadcast] .aim-options button[aria-pressed=true]{background:#f4f4f4;color:#19191c}
+body[data-concept=broadcast] #shoot{min-width:0;background:#fafafa;color:#171719;border:1px solid white;border-radius:12px;padding:10px 13px;font-size:12px}
+body[data-concept=broadcast] .controls[data-input-mode=sling]{height:180px}
+body[data-concept=broadcast] .controls[data-input-mode=sling] #sling-react{left:50%;right:auto;bottom:10px;width:250px;transform:translateX(-50%)}
+body[data-concept=broadcast] .controls[data-input-mode=sling] .input-mode{justify-content:center}
+body[data-concept=broadcast] .sling-stage{height:70px}
+body[data-concept=broadcast] .result{position:absolute!important;bottom:120px!important;font-size:12px!important}
+body[data-concept=broadcast] .chat-panel{display:flex!important;height:auto!important;max-height:none!important;min-height:0!important;margin-top:30px;background:transparent;border:0;border-radius:0;box-shadow:none;overflow:visible}
+body[data-concept=broadcast] .chat-head{padding:0 8px 16px;min-height:48px;border-bottom:1px solid #ffffff35;display:flex;gap:12px}
+body[data-concept=broadcast] .chat-head .ai-mark,body[data-concept=broadcast] #clear-chat{display:none}
+body[data-concept=broadcast] .chat-head h2{font-size:22px;letter-spacing:.3px;white-space:nowrap}
+body[data-concept=broadcast] .connection-row{margin-left:auto;padding:0;border:0;flex:0 1 auto;gap:14px}
+body[data-concept=broadcast] .connection-row .connection{font-size:12px;white-space:nowrap}
+body[data-concept=broadcast] .connection[data-state=preview]::before{background:#4ade80}
+body[data-concept=broadcast] .connection-row #reset-settings{font-size:12px;padding:8px 12px;border-color:#ffffff70}
+body[data-concept=broadcast] .concept-status{padding:18px 10px 12px;color:#bfc5c0;font-size:12px}
+body[data-concept=broadcast] .composer{padding:4px 8px 20px;border:0}
+body[data-concept=broadcast] .suggestion-head,body[data-concept=broadcast] .suggestions{display:none}
+body[data-concept=broadcast] .prompt-composer-shell{margin:0;background:#24262a;border:1px solid #ffffff66;box-shadow:0 0 20px #ffffff04}
+body[data-concept=broadcast] #composer-react{width:100%}
+body[data-concept=broadcast] .prompt-bar{max-width:none;width:100%}
+body[data-concept=broadcast] .studio-history-head{padding:12px 8px;background:transparent;border:0;font-size:15px;text-transform:none;letter-spacing:0}
+body[data-concept=broadcast] #history{flex:none;height:220px;max-height:220px;overflow-y:auto;padding:0 14px;border:1px solid #ffffff45;border-radius:12px;margin:0 8px}
+body[data-concept=broadcast] .message.assistant{position:relative;margin:0;padding:15px 0 15px 25px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 12px;border:0;border-bottom:1px solid #ffffff18;border-radius:0;background:transparent;font-size:13px}
+body[data-concept=broadcast] .message.assistant:before{content:'✓';position:absolute;left:0;top:14px;color:#4ade80;font-weight:bold}
+body[data-concept=broadcast] .message.assistant>div:not(.who):not(.time){grid-column:1}
+body[data-concept=broadcast] .message .time{display:none}
+body[data-concept=broadcast] .message .live-code{margin:0;border:0;grid-column:2;grid-row:1}
+body[data-concept=broadcast] .message .live-code summary{padding:0;white-space:nowrap}
+body[data-concept=broadcast] .message .live-code[open]{grid-column:1/-1;grid-row:auto;margin-top:10px}
+body[data-concept=broadcast] .play-frame:fullscreen{display:flex;flex-direction:column;background:#101315;justify-content:center;border:0;border-radius:0}
+body[data-concept=broadcast] .play-frame:fullscreen .arena{flex:1;aspect-ratio:auto;min-height:0}
+body[data-concept=broadcast] .play-frame:fullscreen #pitch{object-fit:contain}
+@media(max-width:800px){body[data-concept=broadcast] main{padding:0 8px 26px!important}body[data-concept=broadcast] .broadcast-bar{height:auto;min-height:90px;flex-wrap:wrap;padding:9px 10px;gap:8px}body[data-concept=broadcast] .broadcast-title{font-size:16px;padding-right:8px}body[data-concept=broadcast] .arena-hud{order:3;flex-basis:100%}body[data-concept=broadcast] .scoreboard{justify-content:space-between;width:100%}body[data-concept=broadcast] .scoreboard .label{font-size:8px}body[data-concept=broadcast] .scoreboard strong{font-size:15px}body[data-concept=broadcast] .scoreboard .divider{display:none}body[data-concept=broadcast] .round-dots{margin-left:auto;gap:4px}body[data-concept=broadcast] .round-dots i{width:20px;height:20px;font-size:9px}body[data-concept=broadcast] .game-toolbar{margin-left:auto;gap:0}body[data-concept=broadcast] .game-toolbar button{font-size:10px;padding:5px;min-height:28px}body[data-concept=broadcast] .arena{aspect-ratio:1000/800}body[data-concept=broadcast] #pitch{object-fit:cover}body[data-concept=broadcast] .controls{height:115px}body[data-concept=broadcast] .controls .shot-row{left:8px;right:8px;bottom:60px;max-width:none}body[data-concept=broadcast] .controls #sling-react{bottom:100px;right:8px}body[data-concept=broadcast] .controls .aim-row{left:8px;right:8px;bottom:10px;width:auto}body[data-concept=broadcast] .controls[data-input-mode=sling]{height:180px}body[data-concept=broadcast] .controls[data-input-mode=sling] .shot-row{bottom:10px;max-width:42%;right:auto}body[data-concept=broadcast] .controls[data-input-mode=sling] #sling-react{left:auto;right:8px;bottom:5px;width:50%;transform:none}body[data-concept=broadcast] .result{bottom:125px!important;font-size:10px!important}body[data-concept=broadcast] .chat-panel{margin-top:22px}body[data-concept=broadcast] .chat-head{flex-wrap:wrap;padding:0 4px 12px;gap:10px}body[data-concept=broadcast] .chat-head h2{font-size:18px}body[data-concept=broadcast] .connection-row{width:100%;justify-content:space-between;margin:0}body[data-concept=broadcast] .connection-row .connection{font-size:10px}body[data-concept=broadcast] .connection-row #reset-settings{font-size:10px}body[data-concept=broadcast] .composer{padding:4px 0 12px}body[data-concept=broadcast] #history{margin:0;padding:0 10px}body[data-concept=broadcast] .message.assistant{font-size:12px}}
+
+body[data-concept=broadcast] .result{top:76px!important;bottom:auto!important}body[data-concept=broadcast] .fullscreen-button svg{width:20px;height:20px;display:block}@media(max-width:800px){body[data-concept=broadcast] .result{top:108px!important}}
+@media(max-width:800px){body[data-concept=broadcast] .arena{aspect-ratio:1000/950}body[data-concept=broadcast] #pitch{height:calc(100% - 112px);object-fit:fill}body[data-concept=broadcast] .controls{height:112px;background:#14231edb}}
+body[data-concept=broadcast] .play-frame{display:flex;flex-direction:column;height:min(calc(61vw + 35px),calc(100dvh - 48px));max-height:820px}body[data-concept=broadcast] .broadcast-bar{flex:none}body[data-concept=broadcast] .arena{aspect-ratio:auto;flex:1;min-height:0}body[data-concept=broadcast] #pitch{object-fit:contain}body[data-concept=broadcast] .play-frame:fullscreen{height:100dvh!important;max-height:none}@media(max-width:800px){body[data-concept=broadcast] .play-frame{height:auto;max-height:none}body[data-concept=broadcast] .arena{flex:none;aspect-ratio:1000/950}body[data-concept=broadcast] #pitch{object-fit:fill}}
+/* This footer and Studio overlay only exist in the monochrome preview. */
+body[data-concept=broadcast] .pitch-deck > .controls{
+ position:static;inset:auto;display:grid;grid-template-columns:minmax(180px, .9fr) minmax(0,1.2fr) auto;
+ grid-template-areas:"shots aim mode";align-items:center;gap:16px;
+ height:auto;min-height:76px;flex:none;padding:8px 22px;margin:0;border-top:1px solid #ffffff55;background:#171a1d;
+}
+body[data-concept=broadcast] .controls[data-input-mode=sling]{grid-template-areas:"shots sling mode"}
+body[data-concept=broadcast] .controls .shot-row{position:static;grid-area:shots;min-width:0;max-width:none}
+body[data-concept=broadcast] .controls #shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;min-height:0;overflow:visible}
+body[data-concept=broadcast] #shots button{
+ width:100%;min-width:0;min-height:28px;padding:3px 5px;border:1px solid #777a7e;border-radius:6px;
+ color:#fff;background:#ffffff12;box-shadow:none;font:inherit;font-size:12px;
+}
+body[data-concept=broadcast] #shots button:disabled{opacity:.45;cursor:default}
+body[data-concept=broadcast] #shots button.is-new{border-color:#fff}
+body[data-concept=broadcast] .controls .aim-row{position:static;grid-area:aim;grid-template-columns:minmax(0,1fr) auto;width:auto;margin:0;align-items:center;gap:12px}
+body[data-concept=broadcast] .controls .aim-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+body[data-concept=broadcast] .controls .aim-options button{min-width:0;min-height:35px;padding:4px 7px;border-radius:0;color:#fff}
+body[data-concept=broadcast] .controls .aim-options button:first-child{border-radius:12px 0 0 12px}
+body[data-concept=broadcast] .controls .aim-options button:last-child{border-radius:0 12px 12px 0}
+body[data-concept=broadcast] .controls .aim-options button+button{border-left:0}
+body[data-concept=broadcast] .controls .aim-mini,body[data-concept=broadcast] #shoot span{display:none}
+body[data-concept=broadcast] #shoot{min-height:38px;min-width:82px;justify-content:center}
+body[data-concept=broadcast] #sling-react,body[data-concept=broadcast] .sling-dock{display:contents}
+body[data-concept=broadcast] .sling-dock .input-mode{grid-area:mode;flex-direction:row-reverse;justify-content:center;height:auto;border-left:1px solid #ffffff55;padding-left:10px}
+body[data-concept=broadcast] .sling-dock .input-mode button{min-height:35px;font-size:12px;background:transparent;color:#ddd;border:1px solid transparent}
+body[data-concept=broadcast] .sling-dock .input-mode button[aria-pressed=true],
+body[data-concept=broadcast] #shots button[aria-pressed=true],
+body[data-concept=broadcast] .controls .aim-options button[aria-pressed=true]{background:#f7f5ef;color:#18181b;border-color:#fff;font-weight:650}
+body[data-concept=broadcast] .sling-dock .sling-stage{grid-area:sling;height:70px;justify-self:stretch;place-items:center start;padding-left:12%;overflow:visible}
+body[data-concept=broadcast] .sling-dock .sling-help{grid-area:sling;justify-self:end;align-self:center;font-size:11px;gap:2px;pointer-events:none;text-align:right;max-width:59%}
+body[data-concept=broadcast] .arena .chat-panel{
+ position:absolute;z-index:4;inset:auto 16px 16px auto;width:min(330px,34%);margin:0;
+ gap:4px;pointer-events:none;color:#fff;
+}
+body[data-concept=broadcast] .arena .composer{pointer-events:auto;padding:0;background:transparent}
+body[data-concept=broadcast] .arena .prompt-composer-shell{background:#27272a;border:0;border-radius:16px;box-shadow:none}
+body[data-concept=broadcast] .arena #composer-react{min-width:0}
+body[data-concept=broadcast] .arena #chat-form{max-width:100%;width:100%!important}
+body[data-concept=broadcast] .arena #chat-form .prompt-bar__field{background:var(--pb-bg);border-radius:16px;padding:12px;gap:8px}
+body[data-concept=broadcast] .arena #chat-form .prompt-bar__menu{top:auto;bottom:calc(100% + 6px)}
+body[data-concept=broadcast] .arena #prompt{font-size:14px;line-height:22px;color:var(--pb-ink)}
+body[data-concept=broadcast] .arena #prompt::placeholder{color:color-mix(in srgb,var(--pb-ink) 45%,transparent)}
+body[data-concept=broadcast] .arena #chat-form .prompt-bar__field:focus-within{box-shadow:0 0 0 1px #ffffff35}
+body[data-concept=broadcast] .arena #history{display:grid;gap:3px;height:auto;min-height:0;max-height:none;margin:0;padding:0;overflow:visible;border:0}
+body[data-concept=broadcast] .arena .studio-line{
+ color:#fff;background:#101c158c;padding:3px 6px;border-radius:5px;font-size:12px;line-height:1.25;
+ overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow-wrap:anywhere;
+}
+body[data-concept=broadcast] .arena .studio-tools{position:relative;align-self:end;pointer-events:auto;font-size:10px;color:#fff}
+body[data-concept=broadcast] .arena .studio-tools summary{cursor:pointer;background:#101c158c;padding:2px 5px;border-radius:4px}
+body[data-concept=broadcast] .arena .studio-tools[open]{position:absolute;bottom:100%;right:0;width:min(260px,100%);z-index:8;background:#161c19f7;border-radius:8px;padding:8px}
+body[data-concept=broadcast] .arena .studio-tools[open] :is(.connection-row,.suggestion-head,.suggestions){display:flex;flex-wrap:wrap;padding:3px 0;gap:4px}
+body[data-concept=broadcast] .arena .studio-tools[open] #clear-chat{display:inline-flex}
+body[data-concept=broadcast] .arena .studio-tools[open] .suggestions button{font-size:11px}
+body[data-concept=broadcast] #pitch{height:100%;object-fit:fill}
+body[data-concept=broadcast] .play-frame{height:auto;max-height:none}
+body[data-concept=broadcast] .play-frame:not(:fullscreen) .arena{flex:none;aspect-ratio:1000/610}
+body[data-concept=broadcast] .play-frame:fullscreen #pitch{object-fit:contain}
+@media(max-width:800px){
+ body[data-concept=broadcast] .pitch-deck > .controls{
+  grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"shots mode" "aim aim";gap:8px;padding:9px 10px;
+ }
+ body[data-concept=broadcast] .controls[data-input-mode=sling]{grid-template-areas:"shots mode" "sling sling"}
+ body[data-concept=broadcast] #shots button,body[data-concept=broadcast] .sling-dock .input-mode button{min-height:38px}
+ body[data-concept=broadcast] .controls .aim-options button,body[data-concept=broadcast] #shoot{min-height:44px}
+ body[data-concept=broadcast] .arena .chat-panel{width:min(330px,calc(100% - 16px));inset:auto 8px 8px auto}
+ body[data-concept=broadcast] .arena .chat-panel #prompt{font-size:16px}
+ body[data-concept=broadcast] .arena .studio-line{font-size:11px}
+ body[data-concept=broadcast] .arena #send{min-height:36px;width:36px}
+}
+
+/* Studio already announces the update; do not cover gameplay with a second banner. */
+body[data-concept=broadcast] .play-frame #change-feedback{display:none}
+body[data-concept=broadcast] .sling-dock .sling-help{column-gap:8px;row-gap:2px;flex-wrap:wrap;justify-content:flex-end}
+
+/* Compact preview controls: the mode switch belongs to the header, not the shot dock. */
+body[data-concept=broadcast] .pitch-deck > .compact-dock{
+ display:flex;align-items:center;justify-content:center;align-self:center;
+ position:relative;z-index:3;width:max-content;max-width:calc(100% - 12px);
+ gap:8px;height:auto;min-height:0;padding:6px;margin:8px auto 10px;
+ border:1px solid #ffffff24;border-radius:14px;background:#191c1ff2;box-shadow:0 4px 16px #0003;
+}
+body[data-concept=broadcast] .compact-dock .shot-row{position:static;margin:0;padding:0;display:block}
+body[data-concept=broadcast] .compact-dock #shot-picker,
+body[data-concept=broadcast] .compact-dock #shots button,
+body[data-concept=broadcast] .compact-dock .aim-options button{
+ min-height:44px;border:1px solid #ffffff28;border-radius:8px;
+ color:#efefed;background:#ffffff07;box-shadow:none;line-height:1;letter-spacing:0;
+}
+body[data-concept=broadcast] .compact-dock #shot-picker{
+ display:flex;align-items:center;justify-content:center;gap:7px;min-width:88px;padding:5px 9px;font-weight:650;font-size:12px;
+ background:#2a2d30;border-color:#ffffff31;
+}
+body[data-concept=broadcast] .compact-dock #shot-picker svg{width:15px;height:15px;flex:none;opacity:.75}
+body[data-concept=broadcast] .compact-dock #shots{
+ position:absolute;z-index:2;left:0;bottom:calc(100% + 7px);
+ width:min(264px,calc(100vw - 34px));padding:6px;gap:6px;
+ border:1px solid #ffffff36;border-radius:12px;background:#191c1ff7;box-shadow:0 6px 24px #0005;
+}
+body[data-concept=broadcast] .compact-dock #shots button{
+ display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+ min-height:54px;font-size:11px;font-weight:600;padding:5px 3px;
+ background:#24272a;border-color:#ffffff26;box-shadow:inset 0 1px #ffffff0b;
+}
+body[data-concept=broadcast] .compact-dock #shots button svg{width:18px;height:18px;flex:none}
+body[data-concept=broadcast] .compact-dock #shots button:disabled{opacity:.38;box-shadow:none}
+body[data-concept=broadcast] .compact-dock[data-input-mode=sling] .shot-row{max-width:none}
+body[data-concept=broadcast] .compact-dock #shot-picker[aria-expanded=true]{background:#353a3b;border-color:#9b9d82}
+body[data-concept=broadcast] .compact-dock[data-input-mode=sling] #shots{left:50%;transform:translateX(-50%)}
+body[data-concept=broadcast] .compact-dock .aim-row{display:flex;gap:8px;position:static}
+body[data-concept=broadcast] .compact-dock[data-input-mode=sling] .aim-row{display:none}
+body[data-concept=broadcast] .compact-dock .aim-options{gap:3px}
+body[data-concept=broadcast] .compact-dock .aim-options button{width:44px;min-width:44px;padding:0;display:grid;place-items:center}
+body[data-concept=broadcast] .compact-dock .aim-options svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.8}
+body[data-concept=broadcast] .compact-dock #shots button[aria-pressed=true],
+body[data-concept=broadcast] .compact-dock .aim-options button[aria-pressed=true]{
+ background:#b9ba9f2c;color:#f4f5e9;border-color:#bfc39b;font-weight:650;
+}
+body[data-concept=broadcast] .compact-dock #shoot{
+ align-items:center;
+ min-height:44px;min-width:68px;padding:0 10px;gap:5px;border-radius:8px;
+ color:#171719;background:#f4f3ee;font-size:13px;box-shadow:none;
+}
+body[data-concept=broadcast] .compact-dock #shoot svg{width:16px;height:16px;flex:none}
+@media(hover:hover){
+ body[data-concept=broadcast] .compact-dock #shot-picker:enabled:hover,
+body[data-concept=broadcast] .compact-dock #shots button:enabled:hover,
+body[data-concept=broadcast] .compact-dock .aim-options button:enabled:hover{border-color:#fff7}
+ body[data-concept=broadcast] .compact-dock #shots button[aria-pressed=false]:enabled:hover{background:#323639}
+ body[data-concept=broadcast] .compact-dock #shoot:enabled:hover{background:#fff}
+}
+body[data-concept=broadcast] .compact-dock #shot-picker:enabled:active,
+body[data-concept=broadcast] .compact-dock #shots button:enabled:active,
+body[data-concept=broadcast] .compact-dock .aim-options button:enabled:active{box-shadow:inset 0 0 0 100px #0003}
+body[data-concept=broadcast] .compact-dock #shoot:enabled:active{background:#d9dbd0}
+body[data-concept=broadcast] .compact-dock #shoot:disabled{opacity:.48}
+body[data-concept=broadcast] .game-toolbar .compact-mode{
+ display:flex;gap:2px;padding:2px;border:1px solid #ffffff29;border-radius:9px;background:#ffffff09;
+}
+body[data-concept=broadcast] .game-toolbar .compact-mode button{
+ min-height:44px;min-width:44px;padding:0 7px;font-size:11px;color:#cdcdcd;border:1px solid transparent;box-shadow:none;
+}
+body[data-concept=broadcast] .game-toolbar .compact-mode button[aria-pressed=true]{
+ background:#ffffff16;color:#fff;border-color:#ffffff29;
+}
+body[data-concept=broadcast] :is(.compact-dock,.compact-mode) button:focus-visible{outline:2px solid #eef0d1;outline-offset:-3px}
+body[data-concept=broadcast] .compact-dock .sling-dock .sling-stage{
+ width:108px;height:54px;padding:0;place-items:center;align-self:center;
+}
+@media(max-width:390px){
+ body[data-concept=broadcast] .play-frame > .compact-dock,
+ body[data-concept=broadcast] .compact-dock .aim-row{gap:5px}
+ body[data-concept=broadcast] .compact-dock #shot-picker{min-width:78px;padding:5px 6px}
+ body[data-concept=broadcast] .compact-dock #shoot{padding:0 7px}
+}
+@media(max-width:345px){
+ body[data-concept=broadcast] .pitch-deck > .compact-dock{max-width:calc(100% - 4px);padding-inline:4px;gap:4px}
+ body[data-concept=broadcast] .compact-dock .aim-row{gap:4px}
+ body[data-concept=broadcast] .compact-dock .aim-options{gap:2px}
+ body[data-concept=broadcast] .compact-dock #shoot{min-width:63px;gap:3px;padding-inline:5px}
+ body[data-concept=broadcast] .compact-dock #shoot svg{width:14px;height:14px}
+}
+
+/* The preview's compact controls: glide, outline, and solid. */
+body[data-concept=broadcast] .compact-dock #shot-picker{
+ border-radius:7px;background:#222528;border-color:#ffffff36;
+}
+body[data-concept=broadcast] .compact-dock #shot-picker[aria-expanded=true]{
+ background:#2d3330;border-color:#a2ac91;
+}
+/* The active shot stays put. Hover and keyboard focus do not borrow its highlight. */
+body[data-concept=broadcast] .compact-dock #shots button[aria-pressed=true]{
+ background:#394238;border-color:#b4c19e;box-shadow:none;
+}
+@media(hover:hover){
+ body[data-concept=broadcast] .compact-dock #shots button[aria-pressed=false]:enabled:hover{
+  background:#323639;border-color:#ffffff60;
+ }
+ body[data-concept=broadcast] .compact-dock #shots button[aria-pressed=true]:enabled:hover{
+  border-color:#b4c19e;
+ }
+}
+body[data-concept=broadcast] .compact-dock .aim-options{
+ gap:0;border-radius:8px;background:#202326;
+}
+body[data-concept=broadcast] .compact-dock .aim-options button{
+ border-radius:0;border-color:#ffffff36;background:transparent;
+}
+body[data-concept=broadcast] .compact-dock .aim-options button:first-child{border-radius:8px 0 0 8px}
+body[data-concept=broadcast] .compact-dock .aim-options button:last-child{border-radius:0 8px 8px 0}
+body[data-concept=broadcast] .compact-dock .aim-options button+button{border-left:0}
+body[data-concept=broadcast] .compact-dock .aim-options button[aria-pressed=true]{
+ background:#373f37;color:#f2f4eb;border-color:#ffffff36;box-shadow:inset 0 0 0 1px #9ca88a;
+}
+body[data-concept=broadcast] .compact-dock #shoot{
+ background:#fafafa;border-color:#fafafa;transition:background-color 100ms,transform 100ms;
+}
+body[data-concept=broadcast] .compact-dock #shoot:enabled:active{transform:translateY(1px);background:#e5e5e5}
+@media(prefers-reduced-motion:reduce){
+ body[data-concept=broadcast] .compact-dock #shoot{transition:none}
+ body[data-concept=broadcast] .compact-dock #shoot:enabled:active{transform:none}
+}
+
+/* React Bits BorderGlow upstream CSS; license included with its renderer. */
+.border-glow-card {
+  --edge-proximity: 0;
+  --cursor-angle: 45deg;
+  --edge-sensitivity: 30;
+  --color-sensitivity: calc(var(--edge-sensitivity) + 20);
+  --border-radius: 28px;
+  --glow-padding: 40px;
+  --cone-spread: 25;
+
+  position: relative;
+  border-radius: var(--border-radius);
+  isolation: isolate;
+  transform: translate3d(0, 0, 0.01px);
+  display: grid;
+  border: 1px solid rgb(255 255 255 / 15%);
+  background: var(--card-bg, #120F17);
+  overflow: visible;
+  box-shadow:
+    rgba(0, 0, 0, 0.1) 0px 1px 2px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px,
+    rgba(0, 0, 0, 0.1) 0px 4px 8px,
+    rgba(0, 0, 0, 0.1) 0px 8px 16px,
+    rgba(0, 0, 0, 0.1) 0px 16px 32px,
+    rgba(0, 0, 0, 0.1) 0px 32px 64px;
+}
+
+.border-glow-card--light {
+  border-color: rgb(24 24 27 / 12%);
+  box-shadow:
+    rgb(24 24 27 / 4%) 0 1px 2px,
+    rgb(24 24 27 / 5%) 0 8px 24px;
+}
+
+.border-glow-card--light::after,
+.border-glow-card--light > .edge-light {
+  mix-blend-mode: normal;
+}
+
+.border-glow-card::before,
+.border-glow-card::after,
+.border-glow-card > .edge-light {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  transition: opacity 0.25s ease-out;
+  z-index: -1;
+}
+
+.border-glow-card:not(:hover):not(.sweep-active)::before,
+.border-glow-card:not(:hover):not(.sweep-active)::after,
+.border-glow-card:not(:hover):not(.sweep-active) > .edge-light {
+  opacity: 0;
+  transition: opacity 0.75s ease-in-out;
+}
+
+/* colored mesh-gradient border */
+.border-glow-card::before {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--card-bg, #120F17) 0 100%) padding-box,
+    linear-gradient(rgb(255 255 255 / 0%) 0% 100%) border-box,
+    var(--gradient-one, radial-gradient(at 80% 55%, hsla(268, 100%, 76%, 1) 0px, transparent 50%)) border-box,
+    var(--gradient-two, radial-gradient(at 69% 34%, hsla(349, 100%, 74%, 1) 0px, transparent 50%)) border-box,
+    var(--gradient-three, radial-gradient(at 8% 6%, hsla(136, 100%, 78%, 1) 0px, transparent 50%)) border-box,
+    var(--gradient-four, radial-gradient(at 41% 38%, hsla(192, 100%, 64%, 1) 0px, transparent 50%)) border-box,
+    var(--gradient-five, radial-gradient(at 86% 85%, hsla(186, 100%, 74%, 1) 0px, transparent 50%)) border-box,
+    var(--gradient-six, radial-gradient(at 82% 18%, hsla(52, 100%, 65%, 1) 0px, transparent 50%)) border-box,
+    var(--gradient-seven, radial-gradient(at 51% 4%, hsla(12, 100%, 72%, 1) 0px, transparent 50%)) border-box,
+    var(--gradient-base, linear-gradient(#c299ff 0 100%)) border-box;
+
+  opacity: calc((var(--edge-proximity) - var(--color-sensitivity)) / (100 - var(--color-sensitivity)));
+
+  mask-image:
+    conic-gradient(
+      from var(--cursor-angle) at center,
+      black calc(var(--cone-spread) * 1%),
+      transparent calc((var(--cone-spread) + 15) * 1%),
+      transparent calc((100 - var(--cone-spread) - 15) * 1%),
+      black calc((100 - var(--cone-spread)) * 1%)
+    );
+}
+
+/* colored mesh-gradient background fill near edges */
+.border-glow-card::after {
+  border: 1px solid transparent;
+  background:
+    var(--gradient-one, radial-gradient(at 80% 55%, hsla(268, 100%, 76%, 1) 0px, transparent 50%)) padding-box,
+    var(--gradient-two, radial-gradient(at 69% 34%, hsla(349, 100%, 74%, 1) 0px, transparent 50%)) padding-box,
+    var(--gradient-three, radial-gradient(at 8% 6%, hsla(136, 100%, 78%, 1) 0px, transparent 50%)) padding-box,
+    var(--gradient-four, radial-gradient(at 41% 38%, hsla(192, 100%, 64%, 1) 0px, transparent 50%)) padding-box,
+    var(--gradient-five, radial-gradient(at 86% 85%, hsla(186, 100%, 74%, 1) 0px, transparent 50%)) padding-box,
+    var(--gradient-six, radial-gradient(at 82% 18%, hsla(52, 100%, 65%, 1) 0px, transparent 50%)) padding-box,
+    var(--gradient-seven, radial-gradient(at 51% 4%, hsla(12, 100%, 72%, 1) 0px, transparent 50%)) padding-box,
+    var(--gradient-base, linear-gradient(#c299ff 0 100%)) padding-box;
+
+  mask-image:
+    linear-gradient(to bottom, black, black),
+    radial-gradient(ellipse at 50% 50%, black 40%, transparent 65%),
+    radial-gradient(ellipse at 66% 66%, black 5%, transparent 40%),
+    radial-gradient(ellipse at 33% 33%, black 5%, transparent 40%),
+    radial-gradient(ellipse at 66% 33%, black 5%, transparent 40%),
+    radial-gradient(ellipse at 33% 66%, black 5%, transparent 40%),
+    conic-gradient(from var(--cursor-angle) at center, transparent 5%, black 15%, black 85%, transparent 95%);
+
+  mask-composite: subtract, add, add, add, add, add;
+  opacity: calc(var(--fill-opacity, 0.5) * (var(--edge-proximity) - var(--color-sensitivity)) / (100 - var(--color-sensitivity)));
+  mix-blend-mode: soft-light;
+}
+
+/* outer glow layer */
+.border-glow-card > .edge-light {
+  inset: calc(var(--glow-padding) * -1);
+  pointer-events: none;
+  z-index: 1;
+
+  mask-image:
+    conic-gradient(
+      from var(--cursor-angle) at center, black 2.5%, transparent 10%, transparent 90%, black 97.5%
+    );
+
+  opacity: calc((var(--edge-proximity) - var(--edge-sensitivity)) / (100 - var(--edge-sensitivity)));
+  mix-blend-mode: plus-lighter;
+}
+
+.border-glow-card > .edge-light::before {
+  content: "";
+  position: absolute;
+  inset: var(--glow-padding);
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 0 1px var(--glow-color, hsl(40deg 80% 80% / 100%)),
+    inset 0 0 1px 0 var(--glow-color-60, hsl(40deg 80% 80% / 60%)),
+    inset 0 0 3px 0 var(--glow-color-50, hsl(40deg 80% 80% / 50%)),
+    inset 0 0 6px 0 var(--glow-color-40, hsl(40deg 80% 80% / 40%)),
+    inset 0 0 15px 0 var(--glow-color-30, hsl(40deg 80% 80% / 30%)),
+    inset 0 0 25px 2px var(--glow-color-20, hsl(40deg 80% 80% / 20%)),
+    inset 0 0 50px 2px var(--glow-color-10, hsl(40deg 80% 80% / 10%)),
+    0 0 1px 0 var(--glow-color-60, hsl(40deg 80% 80% / 60%)),
+    0 0 3px 0 var(--glow-color-50, hsl(40deg 80% 80% / 50%)),
+    0 0 6px 0 var(--glow-color-40, hsl(40deg 80% 80% / 40%)),
+    0 0 15px 0 var(--glow-color-30, hsl(40deg 80% 80% / 30%)),
+    0 0 25px 2px var(--glow-color-20, hsl(40deg 80% 80% / 20%)),
+    0 0 50px 2px var(--glow-color-10, hsl(40deg 80% 80% / 10%));
+}
+
+.border-glow-inner {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: auto;
+  z-index: 1;
+}
+
+/* Only the preview joins the original React Bits container to an existing clipped game. */
+body[data-concept=broadcast]{overflow-x:clip}
+body[data-concept=broadcast] #penalty-border-glow{display:contents}
+body[data-concept=broadcast] #penalty-border-glow > .border-glow-card{min-width:0}
+body[data-concept=broadcast] #penalty-border-glow .border-glow-inner{min-width:0;overflow:visible}
+body[data-concept=broadcast] #penalty-border-glow .play-frame:not(:fullscreen){
+ border:0;border-radius:calc(var(--border-radius) - 1px);box-shadow:none;
+}
+body[data-concept=broadcast] #penalty-border-glow .border-glow-card::before,
+body[data-concept=broadcast] #penalty-border-glow .border-glow-card::after{pointer-events:none}
+@media(prefers-reduced-motion:reduce),(hover:none){
+ body[data-concept=broadcast] #penalty-border-glow .border-glow-card::before,
+ body[data-concept=broadcast] #penalty-border-glow .border-glow-card::after,
+ body[data-concept=broadcast] #penalty-border-glow .border-glow-card > .edge-light{opacity:0;transition:none}
+}
+
+/* Keep the existing preview’s smoky tokens with a flat game HUD. */
+body[data-concept=broadcast]{
+ --pn-surface:rgba(38,35,46,.66);--pn-solid:#26232E;
+ --pn-edge:rgba(255,255,255,.08);--pn-rim:rgba(255,255,255,.07);
+ --pn-text:rgba(244,244,245,.64);--pn-strong:#F4F4F5;
+ --pn-pill:linear-gradient(180deg,#fff 0%,#EBEBF0 100%);--pn-pill-ink:#121016;
+ --pn-pill-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 6px 16px -6px rgba(0,0,0,.6);
+ --pn-ring:rgba(244,244,245,.55);--pn-row-hover:rgba(255,255,255,.06);
+ --pn-tile:linear-gradient(180deg,#3A3644 0%,#27242F 100%);
+ --pn-tile-rim:inset 0 0 0 1px rgba(255,255,255,.07),inset 0 1px 0 rgba(255,255,255,.12),0 4px 10px -4px rgba(0,0,0,.7);
+ background:var(--pn-pill-ink);
+}
+body[data-concept=broadcast] .play-frame:not(:fullscreen){background:var(--pn-pill-ink)}
+body[data-concept=broadcast] .broadcast-bar{background:#151319;color:var(--pn-strong)}
+body[data-concept=broadcast] .broadcast-title{color:var(--pn-strong);border-right-color:var(--pn-edge)}
+body[data-concept=broadcast] .scoreboard .label{color:var(--pn-text)}
+body[data-concept=broadcast] .scoreboard strong{color:var(--pn-strong)}
+body[data-concept=broadcast] .scoreboard .divider{background:var(--pn-edge)}
+body[data-concept=broadcast] .round-dots i:not(.goal):not(.miss):not(.save):not(.non-goal){
+ color:var(--pn-text);background:transparent;border-color:#ffffff32;
+}
+body[data-concept=broadcast] .game-toolbar button{color:var(--pn-strong)}
+body[data-concept=broadcast] .game-toolbar .compact-mode{
+ display:flex;gap:2px;padding:0;background:none;border:0;border-radius:0;
+}
+body[data-concept=broadcast] .game-toolbar .compact-mode button{
+ color:var(--pn-text);border:1px solid transparent;background:transparent;
+}
+body[data-concept=broadcast] .game-toolbar .compact-mode button[aria-pressed=true]{
+ color:var(--pn-strong);background:#ffffff0d;border-color:#ffffff20;
+}
+@media(hover:hover){
+ body[data-concept=broadcast] .game-toolbar .compact-mode button[aria-pressed=false]:enabled:hover{background:var(--pn-row-hover);color:var(--pn-strong)}
+}
+body[data-concept=broadcast] .game-toolbar .compact-mode button:focus-visible{outline-color:var(--pn-ring)}
+body[data-concept=broadcast] .pitch-deck > .compact-dock{
+ background:var(--pn-surface);border-color:var(--pn-edge);box-shadow:inset 0 1px 0 var(--pn-rim),0 4px 16px #12101688;
+ backdrop-filter:blur(14px);
+}
+body[data-concept=broadcast] .compact-dock #shot-picker,
+body[data-concept=broadcast] .compact-dock #shots button{
+ background:var(--pn-tile);color:var(--pn-strong);border-color:var(--pn-edge);box-shadow:var(--pn-tile-rim);
+}
+body[data-concept=broadcast] .compact-dock #shot-picker svg{color:var(--pn-strong)}
+body[data-concept=broadcast] .compact-dock #shot-picker[aria-expanded=true]{background:#3D3948;border-color:var(--pn-ring)}
+body[data-concept=broadcast] .compact-dock #shots{background:var(--pn-solid);border-color:var(--pn-edge)}
+body[data-concept=broadcast] .compact-dock #shots button[aria-pressed=true]{
+ background:#484352;color:var(--pn-strong);border-color:var(--pn-ring);
+}
+body[data-concept=broadcast] .compact-dock .aim-options{background:var(--pn-solid)}
+body[data-concept=broadcast] .compact-dock .aim-options button{color:var(--pn-strong);border-color:var(--pn-edge)}
+body[data-concept=broadcast] .compact-dock .aim-options button[aria-pressed=true]{
+ background:#484352;color:var(--pn-strong);box-shadow:inset 0 0 0 1px var(--pn-ring);
+}
+@media(hover:hover){
+ body[data-concept=broadcast] .compact-dock #shots button[aria-pressed=false]:enabled:hover{background:#363240;border-color:#ffffff36}
+ body[data-concept=broadcast] .compact-dock #shots button[aria-pressed=true]:enabled:hover{border-color:var(--pn-ring)}
+}
+body[data-concept=broadcast] :is(.compact-dock,.compact-mode) button:focus-visible{outline-color:var(--pn-ring)}
+body[data-concept=broadcast] .compact-dock #shoot{
+ background:var(--pn-pill);color:var(--pn-pill-ink);border-color:#EBEBF0;box-shadow:var(--pn-pill-shadow);
+}
+body[data-concept=broadcast] .compact-dock #shoot:enabled:active{background:#DDDCE2}
+body[data-concept=broadcast] .arena .studio-line,
+body[data-concept=broadcast] .arena .studio-tools summary,
+body[data-concept=broadcast] .arena .studio-tools[open]{background:#26232EF2;color:var(--pn-strong)}
+@media(max-width:390px){
+ body[data-concept=broadcast] .broadcast-bar{gap:5px}
+ body[data-concept=broadcast] .broadcast-title{font-size:13px;padding-right:4px}
+ body[data-concept=broadcast] .game-toolbar button:not([data-mode]){font-size:10px;padding-inline:3px;white-space:nowrap}
+ body[data-concept=broadcast] .game-toolbar .compact-mode button{padding-inline:5px}
+}
+
+/* Confirmed round outcomes use shape and colour; remaining kicks still show their slot. */
+body[data-concept=broadcast] .round-dots i:is(.goal,.non-goal)::before{content:none}
+body[data-concept=broadcast] .round-dots i:is(.goal,.non-goal){background:transparent;border-color:#ffffff32}
+body[data-concept=broadcast] .round-dots i.goal{color:#91e8ae}
+body[data-concept=broadcast] .round-dots i.non-goal{color:#faa0aa}
+body[data-concept=broadcast] .round-dots svg{width:15px;height:15px;display:block}
+body[data-concept=broadcast] .game-toolbar :is(#sound-toggle,.fullscreen-button){
+ display:inline-grid;place-items:center;
+}
+body[data-concept=broadcast] .game-toolbar :is(#sound-toggle,.fullscreen-button) svg{display:block;width:19px;height:19px}
+
+/* ThoughtLine-inspired public status, only attached to a confirmed local change. */
+body[data-concept=broadcast] .arena .preview-thought-line{
+ display:inline-flex;align-items:center;gap:.42em;color:#e6e2ec;font-size:10px;
+}
+body[data-concept=broadcast] .arena .preview-thought-line::before{
+ content:"";width:5px;height:5px;flex:none;border-radius:50%;background:#b7e6c2;
+}
+body[data-concept=broadcast] .arena .preview-thought-detail{display:block;color:var(--pn-strong)}
+
+/* WarmTooltip grouping: one small tooltip, with an edge-clamped gliding anchor. */
+body[data-concept=broadcast] .compact-dock .warm-shot-tooltip{
+ position:absolute;z-index:3;bottom:calc(100% + 8px);
+ left:clamp(92px,var(--shot-hint-x,50%),calc(100% - 92px));transform:translateX(-50%);
+ width:max-content;max-width:min(184px,calc(100% - 16px));padding:5px 8px;border-radius:7px;
+ text-align:center;font-size:11px;line-height:1.25;color:var(--pn-strong);
+ background:#332e3c;border:1px solid var(--pn-edge);box-shadow:0 5px 16px #12101680;
+ pointer-events:none;transition:left 140ms cubic-bezier(.22,1,.36,1);
+}
+body[data-concept=broadcast] .compact-dock .warm-shot-tooltip::after{
+ content:"";position:absolute;bottom:-4px;left:calc(50% - 4px);width:7px;height:7px;
+ border-radius:1px;background:inherit;transform:rotate(45deg);
+}
+@media(prefers-reduced-motion:reduce){
+ body[data-concept=broadcast] .compact-dock .warm-shot-tooltip{transition:none}
+}
+
+
+/* Continue the renderer's foreground turf below the unchanged 1000×610 camera. */
+body[data-concept=broadcast] .pitch-deck{
+ --turf-edge:#34704c;--turf-near:#326c49;
+ display:flex;flex:none;flex-direction:column;align-items:center;position:relative;
+ background:var(--turf-edge);
+}
+body[data-concept=broadcast][data-pitch-look=night] .pitch-deck{--turf-edge:#244e39;--turf-near:#224a36;background:linear-gradient(var(--turf-edge),var(--turf-near))}
+body[data-concept=broadcast] .pitch-deck:has(>.pitch-deck-art:not([hidden])){background:linear-gradient(var(--turf-edge),var(--turf-near))}
+body[data-concept=broadcast] .play-frame:fullscreen .pitch-deck{background:#101315}
+
+/* The open shot tray crosses the canvas; keep it above the Studio overlay until dismissed. */
+body[data-concept=broadcast] .pitch-deck > .compact-dock:has(#shot-picker[aria-expanded=true]){z-index:5}
+/* The collapsed broadcast keeps the live prompt flow; details retain full history. */
+body[data-concept=broadcast] .arena #studio-latest{display:grid;gap:3px}
+body[data-concept=broadcast] .arena #studio-latest:empty,
+body[data-concept=broadcast] .arena #studio-latest [hidden]{display:none}
+body[data-concept=broadcast] .arena .studio-timing{
+ align-items:center;display:inline-flex;justify-self:start;gap:6px;
+ padding:2px 6px;border-radius:5px;background:#26232ef2;color:#e6e2ec;
+ font-size:11px;line-height:1.35;font-variant-numeric:tabular-nums;
+}
+body[data-concept=broadcast] .arena .studio-timing::before{
+ content:'';width:5px;height:5px;flex:none;border-radius:50%;background:currentColor;
+}
+body[data-concept=broadcast] .arena .studio-timing[data-phase=ready]{color:#b7e6c2}
+body[data-concept=broadcast] .arena .studio-timing[data-phase=failed]{color:#faa0aa}
+@media(prefers-reduced-motion:no-preference){
+ body[data-concept=broadcast] .arena .studio-timing[data-phase=generating]::before{
+  animation:studio-timing-pulse 1.4s ease-in-out infinite alternate;
+ }
+ @keyframes studio-timing-pulse{to{opacity:.42}}
+}
+body[data-concept=broadcast] .arena #studio-latest .studio-line[data-state=applied]::before{content:'✓ ';color:#91e8ae}
+body[data-concept=broadcast] .arena .studio-tools[open] #history{display:block;max-height:min(200px,34vh);overflow:auto;padding:4px}
+body[data-concept=broadcast] .arena .studio-tools[open] #history .time{display:block}
+body[data-concept=broadcast] .arena .studio-tools[open] .message{padding:6px;margin:0 0 4px}
+body[data-concept=broadcast] .arena .studio-tools[open] .message.assistant::before{content:none}
+body[data-concept=broadcast] .arena .studio-tools[open] .message .live-code summary{white-space:normal}
+@media(max-width:800px){
+ body[data-concept=broadcast] .arena .studio-tools[open]{
+  bottom:0;max-height:min(220px,max(104px,calc(54vw - 30px)),52dvh);
+  overflow:auto;overscroll-behavior:contain;
+ }
+ body[data-concept=broadcast] .arena .studio-tools[open]>summary{
+  position:sticky;top:0;z-index:1;min-height:40px;align-content:center;
+ }
+}
+
+/* The staged pitch layer extends under controls without altering gameplay geometry. */
+body[data-concept=broadcast] .pitch-deck > .pitch-deck-art{
+ position:absolute;inset:0;width:100%;height:100%;pointer-events:none;object-fit:fill;
+}
+body[data-concept=broadcast] .pitch-deck > .pitch-deck-art[hidden]{display:none}
+body[data-concept=broadcast] .pitch-deck > .pitch-deck-snow{
+ position:absolute;inset:0;width:100%;height:100%;border-radius:inherit;object-fit:fill;pointer-events:none;
+}
+body[data-concept=broadcast] .pitch-deck > .pitch-deck-snow[hidden]{display:none}
+
+/* Renderer layers occupy the original Canvas content rect and never receive input. */
+.hybrid-field-frame{position:absolute;pointer-events:none;isolation:isolate;overflow:hidden}
+.hybrid-field-frame > canvas,.hybrid-field-frame > svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hybrid-turf{position:absolute;inset:49.180328% 0 0;background:#34704c}
+.hybrid-field-frame[data-custom-pitch] .hybrid-turf{background:radial-gradient(ellipse at 35% 0%,#92bd7b91,transparent 58%),repeating-linear-gradient(173deg,#ffffff09 0 13%,#001c141c 13% 27%),linear-gradient(151deg,#285c40,#34704c 63%,#34704c)}
+.hybrid-field-frame[data-custom-pitch] .hybrid-turf::after,.hybrid-field-frame[data-look=night] .hybrid-turf::after{content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(12deg,#001d1214 0 1px,transparent 1px 4px),
+  radial-gradient(ellipse at 48% 16%,transparent 44%,#001c1266);mix-blend-mode:multiply;mask-image:linear-gradient(#000 0 84%,transparent)}
+.hybrid-field-frame[data-look=night] .hybrid-turf{
+  background:radial-gradient(ellipse at 35% 0%,#5f957145,transparent 58%),
+  repeating-linear-gradient(173deg,#ffffff09 0 13%,#001c141c 13% 27%),
+  linear-gradient(151deg,#173e30,#244e39 63%,#244e39)}
+.hybrid-field-frame[data-custom-pitch] .hybrid-turf::before{content:"";position:absolute;inset:84% 0 0;background:linear-gradient(transparent,#34704c)}
+.hybrid-field-frame[data-look=night] .hybrid-turf::before{content:"";position:absolute;inset:84% 0 0;background:linear-gradient(transparent,#244e39)}
+.hybrid-keeper[hidden],.hybrid-field-frame > .hybrid-kicker-idle[hidden],.hybrid-keeper-ready[hidden]{display:none}
+.hybrid-field-frame > .hybrid-kicker-idle{clip-path:inset(0 0 calc(100% - var(--idle-cut)) 0);transform-origin:50% var(--idle-cut)}
+@media(prefers-reduced-motion:no-preference){
+ .hybrid-field-frame[data-keeper-idle] :is(.keeper-ready,.hybrid-keeper-ready){animation:keeper-ready-sway 2.8s ease-in-out infinite}
+ @keyframes keeper-ready-sway{0%,50%,100%{transform:translate(0,0)}25%{transform:translate(-1.5px,-1px)}75%{transform:translate(1.5px,-1px)}}
+ .hybrid-kicker-idle:not([hidden]){animation:hybrid-kicker-weight 3.8s ease-in-out infinite}
+ @keyframes hybrid-kicker-weight{0%,100%{transform:skewX(0)}25%{transform:skewX(1.1deg)}75%{transform:skewX(-1.1deg)}}
+}
+.hybrid-keeper #keeperBody{transform-origin:0 0}
+.hybrid-keeper #armLeft{transform-origin:-9px -44px}
+.hybrid-keeper #armRight{transform-origin:9px -44px}
+.hybrid-keeper #legLeft{transform-origin:-7px -25px}
+.hybrid-keeper #legRight{transform-origin:7px -25px}
+.hybrid-keeper .head{fill:#b87858}
+.hybrid-keeper .hair{fill:#21272a}
+.hybrid-keeper .jersey{fill:var(--hybrid-keeper-kit,#f5ce64)}
+.hybrid-keeper .shorts{fill:#1a2933}
+.hybrid-keeper .glove{fill:#ecf6f4}
+.hybrid-keeper .sock{stroke:#e4e8ba}
+
+
+/* Inline ideas leave the composer layout and submit controls in place. */
+#prompt[data-idea-preview]::placeholder{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#use-idea{display:none}
+@media(pointer:coarse),(max-width:780px){
+ body[data-concept=broadcast] .arena .chat-panel #prompt[data-idea-preview]{min-height:54px;line-height:18px}
+ #prompt[data-idea-preview]::placeholder{white-space:normal;font-size:14px}
+ body[data-concept=broadcast] .arena #chat-form .prompt-bar__bar:has(>#use-idea)>#send:disabled{display:none}
+ body[data-concept=broadcast] .arena .chat-panel #chat-form .prompt-bar__bar>#use-idea{
+  display:inline-flex;align-items:center;min-height:32px;margin-inline-end:3px;padding:0 7px;
+  border:0;border-radius:6px;background:var(--pb-bg);color:var(--pb-ink);font-size:11px;white-space:nowrap
+ }
+}
+
+
+/* Keep the unscaled phone pitch and shot deck above the full-width composer. */
+@media(max-width:800px){
+ body[data-concept=broadcast] .play-frame:not(:fullscreen){
+  margin-bottom:180px;overflow:visible;
+ }
+ body[data-concept=broadcast] .play-frame:not(:fullscreen) .arena{overflow:visible}
+ body[data-concept=broadcast] .play-frame:not(:fullscreen) .broadcast-bar{border-radius:18px 18px 0 0}
+ body[data-concept=broadcast] .play-frame:not(:fullscreen) .pitch-deck{border-radius:0 0 18px 18px}
+ body[data-concept=broadcast] .play-frame:not(:fullscreen) .arena .chat-panel{
+  top:calc(100% + 94px);bottom:auto;
+ }
+ body[data-concept=broadcast] .play-frame:not(:fullscreen) .arena #chat-form .prompt-bar__menu{
+  top:calc(100% + 6px);bottom:auto;
+ }
+ body[data-concept=broadcast] .play-frame:not(:fullscreen) .arena .studio-tools[open]{
+  top:0;bottom:auto;
+ }
+}
+
+.hybrid-field-frame > canvas[hidden]{display:none}
+
+/* Conversational Option A: the live React Bits composer stays above the scrollable log. */
+body[data-concept=broadcast] .play-frame .conversation-studio{
+ position:absolute;top:35%;right:12px;bottom:auto;left:auto;width:calc(27% - 16px);
+ margin:0;padding:8px;gap:5px;box-sizing:border-box;z-index:4;pointer-events:auto;
+ background:#141419ed;border:1px solid #ffffff35;border-radius:12px;box-shadow:0 8px 24px #0006;
+}
+body[data-concept=broadcast] .conversation-studio{container-type:inline-size}
+body[data-concept=broadcast] .conversation-studio .chat-head{
+ display:grid;grid-template-areas:"title targets actions";grid-template-columns:auto minmax(34px,1fr) auto;
+ align-items:center;min-height:0;padding:0 2px 3px;gap:5px;border:0;background:transparent;
+}
+body[data-concept=broadcast] .conversation-studio .chat-head h2{
+ grid-area:title;font:650 13px/1.4 system-ui,sans-serif;letter-spacing:0;text-transform:none;white-space:nowrap;
+}
+.conversation-studio .studio-targets{
+ grid-area:targets;display:flex;gap:4px;min-width:0;overflow:auto;overscroll-behavior-inline:contain;
+ padding:3px;scrollbar-width:thin;
+}
+.conversation-studio .studio-actions{
+ grid-area:actions;display:flex;justify-self:end;justify-content:flex-end;align-items:center;gap:4px;
+}
+body[data-concept=broadcast] .conversation-studio .chat-head button{
+ display:inline-flex;align-items:center;justify-content:center;flex:none;white-space:nowrap;
+ margin:0;padding:2px 5px;min-width:0;min-height:26px;width:auto;height:auto;
+ border:1px solid #ffffff2b;border-radius:6px;background:#ffffff0e;color:#f2eef4;font:500 10px/1.2 system-ui;
+}
+body[data-concept=broadcast] .conversation-studio .chat-head button:disabled{opacity:.4;cursor:default}
+body[data-concept=broadcast] .conversation-studio .studio-targets button{padding-inline:8px;border-radius:999px}
+body[data-concept=broadcast] .conversation-studio .studio-actions :is(#clear-chat,#reset-settings){display:inline-flex;margin:0;padding:2px 5px;min-width:0;min-height:26px;font-size:10px}
+body[data-concept=broadcast] .conversation-studio .connection-row{display:none}
+body[data-concept=broadcast] .conversation-studio #undo-code{display:none!important}
+@container (max-width: 245px){
+ body[data-concept=broadcast] .conversation-studio .chat-head{
+  grid-template-areas:"title actions" "targets targets";grid-template-columns:auto minmax(0,1fr);
+ }
+}
+body[data-concept=broadcast] .conversation-studio #studio-latest{display:none}
+body[data-concept=broadcast] .conversation-studio .composer{
+ padding:0;border:0;pointer-events:auto;background:transparent;
+}
+body[data-concept=broadcast] .conversation-studio .prompt-composer-shell{
+ background:#27272a;margin:0;border:0;border-radius:16px;box-shadow:none;
+}
+body[data-concept=broadcast] .conversation-studio #chat-form{max-width:100%;width:100%!important}
+body[data-concept=broadcast] .conversation-studio #history{
+ display:block;min-height:0;height:auto;max-height:min(148px,23dvh);
+ overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;
+ padding:3px 2px;margin:0;border:0;border-top:1px solid #ffffff1a;background:transparent;
+}
+body[data-concept=broadcast] .conversation-studio #history:empty{display:none}
+.conversation-studio .studio-message{
+ width:fit-content;max-width:100%;color:#f1eff4;margin:5px 2px 7px;
+ font-size:12px;line-height:1.4;white-space:pre-wrap;overflow-wrap:anywhere;
+}
+.conversation-studio .studio-message-user{
+ margin-inline-start:auto;max-width:92%;padding:5px 9px;border-radius:12px;background:#ffffff14;
+}
+.conversation-studio .studio-message-assistant{padding:0 5px}
+.conversation-studio :is(button,summary,#history):focus-visible{outline:2px solid #e6e0ee;outline-offset:2px}
+@media(max-width:1099px),(max-height:480px){
+ body[data-concept=broadcast] .play-frame .conversation-studio{
+  position:relative;inset:auto;width:auto;margin:8px;border-radius:12px;
+ }
+ body[data-concept=broadcast] .conversation-studio #prompt{font-size:16px}
+ body[data-concept=broadcast] .conversation-studio #chat-form .prompt-bar__menu{
+  top:auto;bottom:calc(100% + 6px);
+ }
+ body[data-concept=broadcast] .play-frame:not(:fullscreen){margin-bottom:0}
+ body[data-concept=broadcast] .play-frame:fullscreen{overflow:auto}
+ body[data-concept=broadcast] .conversation-studio .chat-head :is(button,summary){min-height:36px;align-content:center}
+}
+@media(pointer:coarse),(max-width:780px){
+ body[data-concept=broadcast] .conversation-studio #prompt[data-idea-preview]{min-height:54px;line-height:18px}
+ body[data-concept=broadcast] .conversation-studio #chat-form .prompt-bar__bar:has(>#use-idea)>#send:disabled{display:none}
+ body[data-concept=broadcast] .conversation-studio #chat-form .prompt-bar__bar>#use-idea{
+  display:inline-flex;align-items:center;min-height:32px;margin-inline-end:3px;padding:0 7px;
+  border:0;border-radius:6px;background:var(--pb-bg);color:var(--pb-ink);font-size:11px;white-space:nowrap
+ }
+}
+
+/* Anchor the wide Studio below the actual projected goal line. */
+body[data-concept=broadcast] .play-frame .conversation-studio[data-studio-placement=overlay]{
+ top:var(--studio-goal-clear-top);max-height:var(--studio-goal-clear-space)!important;
+}
+body[data-concept=broadcast] .conversation-studio[data-studio-placement=overlay] #history{flex:0 1 auto}
+body[data-concept=broadcast] .play-frame .conversation-studio[data-studio-placement=stack]{
+ position:relative;inset:auto;width:auto;margin:8px;
+}
+body[data-concept=broadcast] .play-frame:fullscreen:has(> .conversation-studio[data-studio-placement=stack]){
+ overflow:auto;
+}
+
+
+/* Compact Game Studio: one title, in-composer target, contextual actions. */
+body[data-concept=broadcast] .conversation-studio .chat-head{
+ display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;
+}
+.conversation-studio .studio-overflow{position:relative;z-index:10}
+.conversation-studio .studio-overflow>summary{
+ display:grid;place-items:center;min-width:33px;min-height:30px;cursor:pointer;list-style:none;
+ border:1px solid #ffffff2b;border-radius:6px;background:#ffffff0e;color:#f2eef4;font:700 20px/1 system-ui;
+}
+.conversation-studio .studio-overflow>summary::-webkit-details-marker{display:none}
+.conversation-studio .studio-overflow-actions{
+ position:absolute;right:0;top:calc(100% + 3px);display:grid;gap:3px;
+ min-width:max-content;padding:5px;background:#242129;border:1px solid #ffffff35;border-radius:8px;
+}
+body[data-concept=broadcast] .conversation-studio .studio-overflow-actions :is(#clear-chat,#reset-settings){
+ display:flex;margin:0;padding:4px 7px;min-width:0;min-height:31px;width:100%;justify-content:flex-start;font-size:12px;
+}
+.conversation-studio .studio-target-picker{
+ display:block;margin:5px 7px 0;max-width:calc(100% - 14px);min-height:28px;padding:2px 6px;
+ border:1px solid #ffffff36;border-radius:7px;background:#242129;color:#f2eef4;font:500 12px/1.2 system-ui;
+}
+.conversation-studio .studio-context-action{
+ display:inline-flex;min-height:24px;align-items:center;margin-top:3px;padding:2px 6px;
+ border:1px solid #ffffff35;border-radius:6px;background:#ffffff0e;color:#f2eef4;font:600 11px/1.2 system-ui;
+}
+@media(pointer:coarse){
+ .conversation-studio .studio-target-picker{font-size:16px}
+ .conversation-studio :is(.studio-target-picker,.studio-context-action,.studio-overflow>summary){min-height:40px}
+}
+
+
+/* Original React Bits field treatment in both Studio placements, no selector row. */
+body[data-concept=broadcast] .conversation-studio #chat-form .prompt-bar__field:focus-within{
+ box-shadow:0 0 0 1px #ffffff35;
+}
+body[data-concept=broadcast] .conversation-studio .studio-overflow-actions #undo-code:not([hidden]){
+ display:flex!important;margin:0;padding:4px 7px;min-width:0;min-height:31px;width:100%;justify-content:flex-start;
+ font-size:12px;
+}
+
+/* The 17/610 fallback rail sits beneath the trusted goal/scenery backdrop. */
+.hybrid-field-frame > .matte-attribution-rail{
+ position:absolute;inset:46.39344262% 0 auto;height:2.78688525%;overflow:hidden;pointer-events:none;background:#101113;container:attribution-rail / inline-size;
+}
+.hybrid-field-frame > .matte-attribution-rail[hidden]{display:none}
+.matte-attribution-rail > img{display:block;position:absolute;inset:0;margin:auto;width:auto;height:100%;max-width:100%;object-fit:contain}
+.matte-attribution-rail > :is(.rail-repeat-left,.rail-repeat-right){display:none}
+@container attribution-rail (min-width:720px){
+ /* Center each repeat outside the goalposts (x 28% and 72%). */
+ .matte-attribution-rail > .rail-repeat-left{display:block;right:72%}
+ .matte-attribution-rail > .rail-repeat-right{display:block;left:72%}
+}
+
+/* Field-only success timer; the existing Studio and screen-reader timing are unchanged. */
+:is(.arena,.play-frame)>#generation-timing{
+ position:absolute;top:calc(var(--field-timing-top,26%) + 10px);right:auto;left:50%;z-index:2;transform:translate(-50%,-50%);
+ display:flex;flex-direction:row;align-items:center;gap:6px;width:max-content;max-width:none;
+ padding:0;border:0;border-radius:0;background:transparent;color:#fff;
+ font-size:clamp(12px,1.14vw,15px);font-weight:640;line-height:1.25;letter-spacing:-.014em;
+ text-shadow:none;white-space:nowrap;pointer-events:none;
+}
+:is(.arena,.play-frame)>#generation-timing[hidden]{display:none}
+:is(.arena,.play-frame)>#generation-timing:not([hidden]){animation:field-generation-timing 15480ms linear both}
+:is(.arena,.play-frame)>#generation-timing svg{width:20px;height:20px;flex:none;color:#FFD54A;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+:is(.arena,.play-frame)>#generation-timing span,:is(.arena,.play-frame)>#generation-timing strong{font-size:inherit;line-height:inherit;color:inherit}
+:is(.arena,.play-frame)>#generation-timing strong{font-weight:700;font-variant-numeric:tabular-nums}
+@keyframes field-generation-timing{
+ 0%{opacity:.28;filter:blur(4px);animation-timing-function:cubic-bezier(.22,1,.36,1)}
+ 1.9379845%,98.8372093%{opacity:1;filter:blur(0)}
+ 100%{opacity:0;filter:blur(0)}
+}
+@media(max-width:700px){:is(.arena,.play-frame)>#generation-timing{top:calc(var(--field-timing-top,26%) + 8px)}}
+@media(prefers-reduced-motion:reduce){:is(.arena,.play-frame)>#generation-timing:not([hidden]){animation:none}}
